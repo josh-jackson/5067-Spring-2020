@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | 5067 Quantitative Methods II</title>
+    <link>/post/</link>
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>/post/</link>
+    </image>
+    
+    <item>
+      <title>Welcome! </title>
+      <link>/post/welcome/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/post/welcome/</guid>
+      <description>
+
+
+&lt;p&gt;This is the website for psych 5067 quantitative methods II. Everything that you need should be included in this website, sans lectures. Changes to syllabus, updates, and timely links will be shared on this landing page. Please check this home page weekly.&lt;/p&gt;
+&lt;p&gt;There are also links to the lectures, syllabus, homeworks and readings. Links will be provided for any datasets that will be used for homework.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

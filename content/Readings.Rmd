@@ -1,0 +1,19 @@
+---
+title: "Readings"
+author: "Josh Jackson"
+date: "1/11/2020"
+output: html_document
+---
+
+# Text Books
+
+1. Learning Stats with R by Danielle Navarro
+https://learningstatisticswithr.com
+html version: https://learningstatisticswithr.com/book/
+pdf version: https://learningstatisticswithr.com/lsr-0.6.pdf
+
+2. If you were asleep most of last semester and/or have amazon giftcards to burn check out the new statistics: https://thenewstatistics.com/itns/
+
+# Individual papers and chapters
+
+COMING SOON. Insert construction cone. 

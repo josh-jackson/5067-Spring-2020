@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Josh Jackson" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
+
+
+# Goals for semester
+
+- Analyze and interpret general(ized) linear models (aka regression models; aka ANOVA)
+
+- Be able to graph your data
+
+- Identify and diagnose problems when they arise
+
+---
+# Important links
+
+- [LSR](https://learningstatisticswithr.com/book/)
+
+- [Example data from class (and Rmd and all other materials)](https://github.com/josh-jackson/5067-Spring-2020) if you don't want to use class webpage. 
+
+---
+# Important information
+
+- Most important information is on the slides
+
+- Readings serve to supplement and enhance
+
+- Important equations will be presented via slides
+
+---
+# Two types of people
+
+- This class is going too slow vs going too fast
+
+- If too fast: ASK QUESTIONS AND COME AND VISIT ME. Also spend lots of time outside of class; learning takes time.
+
+- If too slow: ASK QUESTIONS AND COME AND VISIT ME. There are lots of interesting extensions to these models. I have readings. 
+
+---
+# Goals for today  
+
+- Review of last semester
+
+- Overview of this semester
+
+---
+# What should you already know? 
+
+---
+# Pragmatics
+
+- R, RStudio 
+- Rmarkdown/LaTeX
+- Reproducible reports: Rmd/LaTeX -&gt; html/pdf 
+- Keep organized: R Projects
+- Keep it visual: ggplot
+- Keeping track/sharing: osf, github (recommended)
+- Keep it simple and readable: dplyr &amp; tidyverse (strongly recommended)
+- Keep it interesting: shiny apps (recommended for advanced users)
+
+---
+# Visualizing data
+
+- Histograms, probability mass function
+
+- Density plot, probability density function, cumulative density function
+
+- Representing your results through bar, box, violin
+
+- Suggestions: 1. Avoid wow graphs, 2. use interpretable scales, 3. label 4. always provide a dispersion estimate and 5. if possible include raw data and/or the distribution (as dispersion only can hide oddities)
+
+---
+class: clear
+.code60[
+
+```r
+# Package for including stats within ggplot and for plotting basic ANOVAs
+library(ggstatsplot)
+
+#load data
+data("iris")
+
+# plot
+P1.1 &lt;- ggstatsplot::ggbetweenstats(
+data = iris,
+  x = Species,
+  y = Sepal.Length,
+  xlab = "Type of Species", # label for the x-axis variable
+  ylab = "Attribute", # label for the y-axis variable
+  title = "Iris flower data set", 
+  bf.message = FALSE
+) + 
+  ggplot2::coord_cartesian(ylim = c(3, 8)) +
+  ggplot2::scale_y_continuous(breaks = seq(3, 8, by = 1))
+```
+
+```
+## Note: 95% CI for effect size estimate was computed with 100 bootstrap samples.
+## Note: Shapiro-Wilk Normality Test for Attribute: p-value = 0.010
+## Note: Bartlett's test for homogeneity of variances for factor Type of Species: p-value = &lt; 0.001
+```
+]
+
+---
+class: clear
+&lt;img src="Introduction-1_files/figure-html/unnamed-chunk-2-1.png" width="1000" height="600" /&gt;
+
+
+---
+class: clear
+ANOVA vs Welch's ANOVA
+.code70[
+
+```r
+summary(aov(Sepal.Length ~ Species, data = iris))
+```
+
+```
+##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Species       2  63.21  31.606   119.3 &lt;2e-16 ***
+## Residuals   147  38.96   0.265                   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+
+```r
+oneway.test(Sepal.Length ~ Species, data = iris, var.equal=FALSE)
+```
+
+```
+## 
+## 	One-way analysis of means (not assuming equal variances)
+## 
+## data:  Sepal.Length and Species
+## F = 138.91, num df = 2.000, denom df = 92.211, p-value &lt; 2.2e-16
+```
+]
+
+---
+# Running models
+
+Y = X + E 
+
+Dependent variable = Independent Variable(s) + Error 
+
+Sum of Squares total = Sums of squares between + sums of squares within 
+
+Every model we run this semester will be in the form of Y = X + E.  Last semester, every model you ran was in the form of Y = X + E. You just didn't know it. 
+
+
+```r
+t.1 &lt;- t.test(y ~ x, data = d) 
+# y is cont and x is a categoriocal/nominal (dichotomous) factor
+```
+
+---
+# Comparing models
+
+SSW(restricted) - SSW(full) / stuff 
+
+The full restricted is equivalent to Y = X + E compared to Y = E and asking which E is larger. The only difference between these two models is our X variable (our IVs). The result is we are asking whether X helps explain variance in Y, which is equivalent to asking whether X reduces variance that is unexplained. 
+---
+# Theoretical probability distributions 
+
+- How you measure your variables determine your analytic tool options
+
+- For IVs how you measure changes the name of the analysis but not really much else
+
+- For DVs, data generating process (DGP) defines appropriate analyses 
+
+- Binomial, poisson, negative binomial, normal (Gaussian), t, F, chi-square...
+
+- As a default we assume Gaussian. Why? 
+
+- THIS DOES NOT MEAN WE NEED TO HAVE A NORMAL DISTRIBUTION IN OUR DATA
+---
+# Many distributions
+
+- Population distribution -&gt; sample distribution -&gt; sampling distribution
+
+- Standard error is the standard deviation of the sampling distribution
+---
+
+# p-values, NHST and standard operating procedures 
+
+- p(D|Ho), not p(Ho|D) 
+
+- Type 1 &amp; 2 errors, power, family wise error
+
+- Issues with NHST
+
+- Questionable research practices (QRPs)
+
+---
+# Effect size and CIs
+- There is imprecision in all that you do. Document it. 
+
+- Interpretation and utility of CI?
+
+- Common effect size metrics?
+
+- How does the CI relate to the sample and sampling distribution? 
+
+- Engage in meta-analytic thinking
+
+---
+# How to succeed (in class)
+
+- Go through slides, work through code  
+
+- Apply concepts to your own work 
+
+- Devote time 
+
+---
+# Looking forward
+
+-  This semester's themes are Relationships and Models
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

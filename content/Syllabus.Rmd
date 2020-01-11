@@ -1,0 +1,105 @@
+---
+title: "Quantitative Methods II, Psych 5067"
+author: 
+date: Spring 2018
+output:
+  html_document: default
+---
+<br>  
+
+#### People
+**Instructor**: Joshua Jackson  
+**Office**: Room #315B  
+**Office hours**: 10-11 Wednesday and by appointment  
+
+**TA**: Brent Rappaport  
+**Office**: Room 340A
+**Office hours**: Thursday 10:50-12:30 
+
+<br>  
+
+#### Course Descrition#### 
+
+This course will provide a detailed overview of multiple regression as a data-analytic method. The course provides a conceptual background of the central ideas and applications along with the necessary applied skills to carry out analyses of continunous and categorical data. The analytic approaches are thus applicable to experimental research in which factors are manipulated and to observational research. Goals are threefold: (1) learn how to look at and think about data – to check for problems in regression models, errors in computer outputs, identify missuses of regression, (2) be able to examine the relationship among regression models, theoretical models, and your data, and (3) construct regression equations to examine specific hypotheses and interpret resulting models and regression coefficients. 
+
+<br>  
+
+#### Class textbook
+
+- Learning Statistics with R by Daniel Navarro <http://www.compcogscisydney.com/learning-statistics-with-r.html>
+
+*Recommended text (not required)*
+
+-Aiken, L. S., & West, S. G. (1991). Multiple regression: Testing and interpreting interactions. Newbury Park, CA: Sage Publications.
+
+-Cohen, J., Cohen, P., West, S. G., & Aiken, L. A. (2003). Applied multiple regression/correlation analysis for the behavioral sciences (3rd edition). Hillsdale, NJ: Lawrence Erlbaum Associates.
+
+-Cumming, G. (2013). Understanding the new statistics: Effect sizes, confidence intervals, and meta-analysis. Routledge.
+
+-Myers, J.L., Well, A. D., & Lorch, R. F. (2010). Research Design & Statistical Analysis (3rd Ed.), New York, NY: Routledge. 
+
+-McElreath, R. (2016). Statistical Rethinking: A Bayesian Course with Examples in R. CRC Press. 
+
+<br>  
+
+#### Grading
+The class consists of 2 in class tests, a cumulative final exam,  7 take home exams ie homeworks, and one oral "exam". The 2 in class exams make up 40% of your grade (20% each). The final exam will account for 20%.  The 7 take home projects fulfills 35% of your final grade (5% each) while the oral exam will make up the remaining 5%. 
+
+Typically, grades are "curved," but not to a predefined distribution. The curve will always be in a manner that will help people, not hurt. 
+
+Due dates for exams and other project details will be listed on the announcements/home page. Expect exact dates to change throughout the semester so be sure to check the site frequently. 
+
+Note: take home homeworks should be treated like exams. No discussing of questions or sharing code. Any duplicate code will result in zero points for that section. In the past this has frustrated people. However, the necessary code is 1. mostly available in the lectures and 2. able to be found online with some simple searches. The struggle of not having your code immediately work is real and is experienced by everyone. This is normal and thus should be expected. Thus, please give yourself ample time to work on these takehome projects. The struggle is also something you will encounter. Getting practice to search for and deal with problems is a useful skillset. If you are hitting your head against a wall for hours please ask Brent or I for advice.   
+
+**Grades**:   
+100%   - A+  
+99-92 - A  
+90-91 - A-  
+89    - B+  
+88-81 - B  
+80    - B-  
+79-70 - C  
+69-60 - D  
+<60   - F  
+  
+  <br>  
+  
+#### Schedule####  
+
+Note that dates and readings are tentative. Topics will likely shift; all changes will be updated on the homepage, not necessarily in the syllabus below. 
+
+| Week | Date  |  Topic                                 |LSR readings       | Additional Readings  |
+-------|-------|----------------------------------------|--------------------|----------------------|
+| 1    | 1/14  | Recap and GLM intro           |                   |Cumming's new stat, if needed|
+| -    | 1/16  | GLM and Categorical predictors       |                    |                  |
+| 2    | 1/21  | Correlation                       |                    | Correlation Revelle  |
+| -    | 1/23  | Correlation                  |                  |                      |
+| 3    | 1/28  | Univariate Regression    |   Chapter 15               |                      |
+| -    | 1/30  | Univariate Regression            |                  |  MR Cohen chapter     |
+| 4    | 2/4   | Partial Correlations              |                  |                      |
+| -    | 2/6   | Multiple Regression                    |                  |      |
+| 5    | 2/11  | Multiple Regression                |                  |                      |
+| -    | 2/13  | Multiple Regression         |                  |                      |
+| 6    | 2/18  | Multiple Regression                 |                    |                      |
+| -    | 2/20  | **Exam 1**          |                    |                      |
+| 7    | 2/25  | Assumptions, model diagnostics                  |                    |        |
+| -    | 2/27  | Assumptions, model diagnostics          |               |                      |
+| 8    | 3/3   | Moderation/interaction          |                    |                      |
+| -    | 3/5   | Moderation/interaction           |                     | Aiken  Chapter        |
+| 9    | 3/10  | **Spring Break!**                |                      |                      |
+| -    | 3/12  | **Spring Break!**                 |                     |                      |
+| 10   | 3/17  | Polynomials                     |                   |          |
+| -    | 3/19  | Factorial ANOVA                 |    Chapter 16                  |   Myers chapter   |
+| 11   | 3/24  | Factorial ANOVA     |    Chapter 16          |        Myers chapter         |
+| -    | 3/26  | Cont and cat predictors (ANCOVA)              |                     |       |
+| 12   | 3/31  | Logistic regression/GLM     |                 |                      |
+| -    | 4/2   | Over/underfitting and validation    |            |     |Cohen Logistic Chapter 
+| 13   | 4/7   | Repeated measures/MLM              |      Yarkoni Westfall     |    |
+| -    | 4/9   | Repeated measures/MLM        |   Hoffman BRM             |                      |
+| 14   | 4/14  | Repeated measures/MLM                                  |                      |
+| -    | 4/16  | **Exam 2**                 |             |          |
+| 15   | 4/21  | Bayesian statistics     |  Chapter 17      | Kruschke PBR                     |
+| -    | 4/23  | Bayesian regression             |                      |                      |
+| -    | 5/5   | **Final Exam**             |                      |                      |
+
+

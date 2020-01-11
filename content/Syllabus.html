@@ -1,0 +1,291 @@
+---
+title: "Quantitative Methods II, Psych 5067"
+author: 
+date: Spring 2018
+output:
+  html_document: default
+---
+
+
+
+<p><br></p>
+<div id="people" class="section level4">
+<h4>People</h4>
+<p><strong>Instructor</strong>: Joshua Jackson<br />
+<strong>Office</strong>: Room #315B<br />
+<strong>Office hours</strong>: 10-11 Wednesday and by appointment</p>
+<p><strong>TA</strong>: Brent Rappaport<br />
+<strong>Office</strong>: Room 340A
+<strong>Office hours</strong>: Thursday 10:50-12:30</p>
+<p><br></p>
+</div>
+<div id="course-descrition" class="section level4">
+<h4>Course Descrition</h4>
+<p>This course will provide a detailed overview of multiple regression as a data-analytic method. The course provides a conceptual background of the central ideas and applications along with the necessary applied skills to carry out analyses of continunous and categorical data. The analytic approaches are thus applicable to experimental research in which factors are manipulated and to observational research. Goals are threefold: (1) learn how to look at and think about data – to check for problems in regression models, errors in computer outputs, identify missuses of regression, (2) be able to examine the relationship among regression models, theoretical models, and your data, and (3) construct regression equations to examine specific hypotheses and interpret resulting models and regression coefficients.</p>
+<p><br></p>
+</div>
+<div id="class-textbook" class="section level4">
+<h4>Class textbook</h4>
+<ul>
+<li>Learning Statistics with R by Daniel Navarro <a href="http://www.compcogscisydney.com/learning-statistics-with-r.html" class="uri">http://www.compcogscisydney.com/learning-statistics-with-r.html</a></li>
+</ul>
+<p><em>Recommended text (not required)</em></p>
+<p>-Aiken, L. S., &amp; West, S. G. (1991). Multiple regression: Testing and interpreting interactions. Newbury Park, CA: Sage Publications.</p>
+<p>-Cohen, J., Cohen, P., West, S. G., &amp; Aiken, L. A. (2003). Applied multiple regression/correlation analysis for the behavioral sciences (3rd edition). Hillsdale, NJ: Lawrence Erlbaum Associates.</p>
+<p>-Cumming, G. (2013). Understanding the new statistics: Effect sizes, confidence intervals, and meta-analysis. Routledge.</p>
+<p>-Myers, J.L., Well, A. D., &amp; Lorch, R. F. (2010). Research Design &amp; Statistical Analysis (3rd Ed.), New York, NY: Routledge.</p>
+<p>-McElreath, R. (2016). Statistical Rethinking: A Bayesian Course with Examples in R. CRC Press.</p>
+<p><br></p>
+</div>
+<div id="grading" class="section level4">
+<h4>Grading</h4>
+<p>The class consists of 2 in class tests, a cumulative final exam, 7 take home exams ie homeworks, and one oral “exam”. The 2 in class exams make up 40% of your grade (20% each). The final exam will account for 20%. The 7 take home projects fulfills 35% of your final grade (5% each) while the oral exam will make up the remaining 5%.</p>
+<p>Typically, grades are “curved,” but not to a predefined distribution. The curve will always be in a manner that will help people, not hurt.</p>
+<p>Due dates for exams and other project details will be listed on the announcements/home page. Expect exact dates to change throughout the semester so be sure to check the site frequently.</p>
+<p>Note: take home homeworks should be treated like exams. No discussing of questions or sharing code. Any duplicate code will result in zero points for that section. In the past this has frustrated people. However, the necessary code is 1. mostly available in the lectures and 2. able to be found online with some simple searches. The struggle of not having your code immediately work is real and is experienced by everyone. This is normal and thus should be expected. Thus, please give yourself ample time to work on these takehome projects. The struggle is also something you will encounter. Getting practice to search for and deal with problems is a useful skillset. If you are hitting your head against a wall for hours please ask Brent or I for advice.</p>
+<p><strong>Grades</strong>:<br />
+100% - A+<br />
+99-92 - A<br />
+90-91 - A-<br />
+89 - B+<br />
+88-81 - B<br />
+80 - B-<br />
+79-70 - C<br />
+69-60 - D<br />
+&lt;60 - F</p>
+<p><br></p>
+</div>
+<div id="schedule" class="section level4">
+<h4>Schedule</h4>
+<p>Note that dates and readings are tentative. Topics will likely shift; all changes will be updated on the homepage, not necessarily in the syllabus below.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Date</th>
+<th>Topic</th>
+<th>LSR readings</th>
+<th>Additional Readings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1/14</td>
+<td>Recap and GLM intro</td>
+<td></td>
+<td>Cumming’s new stat, if needed</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>1/16</td>
+<td>GLM and Categorical predictors</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1/21</td>
+<td>Correlation</td>
+<td></td>
+<td>Correlation Revelle</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>1/23</td>
+<td>Correlation</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>1/28</td>
+<td>Univariate Regression</td>
+<td>Chapter 15</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>1/30</td>
+<td>Univariate Regression</td>
+<td></td>
+<td>MR Cohen chapter</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>2/4</td>
+<td>Partial Correlations</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>2/6</td>
+<td>Multiple Regression</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>2/11</td>
+<td>Multiple Regression</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>2/13</td>
+<td>Multiple Regression</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>2/18</td>
+<td>Multiple Regression</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>2/20</td>
+<td><strong>Exam 1</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>2/25</td>
+<td>Assumptions, model diagnostics</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>2/27</td>
+<td>Assumptions, model diagnostics</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>3/3</td>
+<td>Moderation/interaction</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>3/5</td>
+<td>Moderation/interaction</td>
+<td></td>
+<td>Aiken Chapter</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>3/10</td>
+<td><strong>Spring Break!</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>3/12</td>
+<td><strong>Spring Break!</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>3/17</td>
+<td>Polynomials</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>3/19</td>
+<td>Factorial ANOVA</td>
+<td>Chapter 16</td>
+<td>Myers chapter</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>3/24</td>
+<td>Factorial ANOVA</td>
+<td>Chapter 16</td>
+<td>Myers chapter</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>3/26</td>
+<td>Cont and cat predictors (ANCOVA)</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>3/31</td>
+<td>Logistic regression/GLM</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>4/2</td>
+<td>Over/underfitting and validation</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>4/7</td>
+<td>Repeated measures/MLM</td>
+<td>Yarkoni Westfall</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>4/9</td>
+<td>Repeated measures/MLM</td>
+<td>Hoffman BRM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>4/14</td>
+<td>Repeated measures/MLM</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>4/16</td>
+<td><strong>Exam 2</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>4/21</td>
+<td>Bayesian statistics</td>
+<td>Chapter 17</td>
+<td>Kruschke PBR</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>4/23</td>
+<td>Bayesian regression</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>-</td>
+<td>5/5</td>
+<td><strong>Final Exam</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>

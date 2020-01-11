@@ -1,0 +1,192 @@
+---
+authors: []
+categories: []
+date: " "
+slides:
+  highlight_style: dracula
+  theme: black
+summary: Week 1, class 1
+tags: []
+title: Introduction
+---
+
+
+## Goals for semester
+
+- Analyze and interpret general(ized) linear models (aka regression models; aka ANOVA)
+
+- Be able to graph your data
+
+- Identify and diagnose problems when they arise
+
+## Important links
+- [Class website](https://josh-jackson.github.io/Psych5067/)
+
+- [Class readings](https://josh-jackson.github.io/Psych5067/readings.html)
+
+- [LSR](https://learningstatisticswithr.com/book/)
+
+- [Example data from class (and Rmd and all other materials)](https://github.com/josh-jackson/Psych5067) if you dont want to use class webpage. 
+
+## Important information
+
+- Most important information is on the slides
+
+- Readings serve to supplement and enhance
+
+- Important equations will be presented via slides
+
+## Two types of people
+
+- This class is going too slow vs going too fast
+
+- If too fast: ASK QUESTIONS AND COME AND VISIT ME. Also spend lots of time outside of class; learning takes time.
+
+- If too slow: ASK QUESTIONS AND COME AND VISIT ME. There are lots of interesting extensions to these models. I have readings. 
+
+
+## Goals for today  
+
+- Review of last semester
+- Overview of this semester
+
+## What should you already know? 
+
+
+## pragmatics
+
+- R, RStudio 
+- Rmarkdown/LaTeX
+- Reproducible reports: Rmd/LaTeX -> html/pdf 
+
+- Keep organized: R Projects 
+- Keep it visual: ggplot 
+- Keeping track/sharing: osf, github (recommended)
+- Keep it simple and readable: dplyr & tidyverse (strongly recommended)
+- Keep it interesting: shiny apps (recommended for advanced users)
+
+## Visualizing data
+
+- Histograms, probability mass function
+
+- Density plot, probability density function, cumulative density function
+
+- Representing your results through bar, box, violin
+1. Avoid wow graphs, 2. use interpretable scales, 3. label 4. always provide a dispersion estimate and 5. if possible include raw data and/or the distribution (as dispersion only can hide oddities)
+
+##
+
+```{r}
+
+# Package for including stats within ggplot and for plotting basic ANOVAs
+library(ggstatsplot)
+
+#load data
+data("iris")
+
+# plot
+ggstatsplot::ggbetweenstats(
+  data = iris,
+  x = Species,
+  y = Sepal.Length,
+  xlab = "Type of Species", # label for the x-axis variable
+  ylab = "Attribute", # label for the y-axis variable
+  title = "Iris flower data set", 
+  bf.message = FALSE
+) + 
+  ggplot2::coord_cartesian(ylim = c(3, 8)) +
+  ggplot2::scale_y_continuous(breaks = seq(3, 8, by = 1))
+```
+
+## ANOVA results
+
+```{r}
+summary(aov(Sepal.Length ~ Species, data = iris))
+
+```
+
+## Welches ANOVA
+
+```{r}
+
+oneway.test(Sepal.Length ~ Species, data = iris, var.equal=FALSE)
+
+```
+
+## Running models
+
+Y = X + E
+Dependent variable = Independent Variable(s) + Error
+Sum of Squares total = Sums of squares between + sums of squares within
+
+Every model we run this semester will be in the form of Y = X + E. Last semester, every model you ran was in the form of Y = X + E. You just didn't know it. 
+
+##
+
+```{r, eval=FALSE}
+
+t.1 <- t.test(y ~ x, data = d) 
+# y is cont and x is a categoriocal/nominal (dichotomous) factor
+```
+
+## Comparing models
+
+SSW(restricted) - SSW(full) / stuff
+
+The full restricted is equivalent to Y = X + E compared to Y = E and asking which E is larger. The only difference between these two models is our X variable (our IVs). The result is we are asking whether X helps explain variance in Y, which is equivalent to asking whether X reduces variance that is unexplained. 
+
+## Theoretical probability distributions 
+
+- How you measure your variables determine your analytic tool options
+
+- For IVs how you measure changes the name of the analysis but not really much else
+
+- For DVs, data generating process (DGP) defines appropriate analyses 
+
+- Binomial, poisson, negative binomial, normal (Gaussian), t, F, chi-square...
+
+- As a default we assume Gaussian. Why? 
+
+- THIS DOES NOT MEAN WE NEED TO HAVE A NORMAL DISTRIBUTION IN OUR DATA
+
+## Many distributions
+
+- Population distribution -> sample distribution -> sampling distrinbution
+
+- Standard error is the standard deviation of the sampling distribution
+
+## p-values, NHST and standard opperating procedures 
+
+- p(D|Ho), not p(Ho|D) 
+
+- Type 1 & 2 errors, power, family wise error
+
+- Issues with NHST
+
+- Questionable research practices (QRPs)
+
+## Effect size and CIs
+- There is imprecision in all that you do. Document it. 
+
+- Interpretation and utility of CI?
+
+- Common effect size metrics?
+
+- How does the CI relate to the sample and sampling distribution? 
+
+- Engage in meta-analytic thinking
+
+## how to suceed (in class)
+
+- Go through slides, work through code
+- Apply concepts to your own work
+- Devote time
+
+## Looking forward
+
+-  This semeter's themes are Relationships and Models
+
+
+
+
+

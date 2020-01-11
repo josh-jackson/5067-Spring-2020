@@ -1,0 +1,23 @@
+---
+title: 'Welcome! '
+author: ''
+date: '2020-01-06'
+slug: welcome
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-01-06T11:14:26-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+This is the website for psych 5067 quantitative methods II. Everything that you need should be included in this website, sans lectures. Changes to syllabus, updates, and timely links will be shared on this landing page. Please check this home page weekly. 
+
+There are also links to the lectures, syllabus, homeworks and readings. Links will be provided for any datasets that will be used for homework. 
