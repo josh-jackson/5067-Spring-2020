@@ -17,6 +17,14 @@
     font-size: 30px;
     padding: 1em 4em 1em 4em;
 }
+
+.small .remark-code { 
+  font-size: 80% !important;
+}
+.tiny .remark-code {
+  font-size: 50% !important;
+}
+
 &lt;/style&gt;
 
 
@@ -88,7 +96,7 @@
 
 ---
 class: clear
-.code60[
+.small[
 
 ```r
 # Package for including stats within ggplot and for plotting basic ANOVAs
@@ -126,7 +134,7 @@ class: clear
 ---
 class: clear
 ANOVA vs Welch's ANOVA
-.code70[
+.small[
 
 ```r
 summary(aov(Sepal.Length ~ Species, data = iris))
@@ -183,9 +191,7 @@ The full restricted is equivalent to Y = X + E compared to Y = E and asking whic
 
 - How you measure your variables determine your analytic tool options
 
-- For IVs how you measure changes the name of the analysis but not really much else
-
-- For DVs, data generating process (DGP) defines appropriate analyses 
+- For IVs, how you measure changes the name of the analysis but not really much else. For DVs, data generating process (DGP) defines appropriate analyses 
 
 - Binomial, poisson, negative binomial, normal (Gaussian), t, F, chi-square...
 
@@ -200,7 +206,7 @@ The full restricted is equivalent to Y = X + E compared to Y = E and asking whic
 - Standard error is the standard deviation of the sampling distribution
 ---
 
-# p-values, NHST and standard operating procedures 
+# p-values, NHST, and standard operating procedures 
 
 - p(D|Ho), not p(Ho|D) 
 
