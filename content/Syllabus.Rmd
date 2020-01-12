@@ -12,15 +12,19 @@ output:
 **Office**: Room #315B  
 **Office hours**: 10-11 Wednesday and by appointment  
 
-**TA**: Brent Rappaport  
+**AI**: Brent Rappaport  
 **Office**: Room 340A
 **Office hours**: Thursday 10:50-12:30 
 
+**Super AI**: Shelly Cooper 
+**Office**: Room 105
+
+
 <br>  
 
-#### Course Descrition#### 
+#### Course Description#### 
 
-This course will provide a detailed overview of multiple regression as a data-analytic method. The course provides a conceptual background of the central ideas and applications along with the necessary applied skills to carry out analyses of continunous and categorical data. The analytic approaches are thus applicable to experimental research in which factors are manipulated and to observational research. Goals are threefold: (1) learn how to look at and think about data – to check for problems in regression models, errors in computer outputs, identify missuses of regression, (2) be able to examine the relationship among regression models, theoretical models, and your data, and (3) construct regression equations to examine specific hypotheses and interpret resulting models and regression coefficients. 
+This course will provide a detailed overview of multiple regression as a data-analytic method. The course provides a conceptual background of the central ideas and applications along with the necessary applied skills to carry out analyses of continuous and categorical data. The analytic approaches are thus applicable to experimental research in which factors are manipulated and to observational research. Goals are threefold: (1) learn how to look at and think about data – to check for problems in regression models, errors in computer outputs, identify missuses of regression, (2) be able to examine the relationship among regression models, theoretical models, and your data, and (3) construct regression equations to examine specific hypotheses and interpret resulting models and regression coefficients. 
 
 <br>  
 
@@ -49,7 +53,7 @@ Typically, grades are "curved," but not to a predefined distribution. The curve 
 
 Due dates for exams and other project details will be listed on the announcements/home page. Expect exact dates to change throughout the semester so be sure to check the site frequently. 
 
-Note: take home homeworks should be treated like exams. No discussing of questions or sharing code. Any duplicate code will result in zero points for that section. In the past this has frustrated people. However, the necessary code is 1. mostly available in the lectures and 2. able to be found online with some simple searches. The struggle of not having your code immediately work is real and is experienced by everyone. This is normal and thus should be expected. Thus, please give yourself ample time to work on these takehome projects. The struggle is also something you will encounter. Getting practice to search for and deal with problems is a useful skillset. If you are hitting your head against a wall for hours please ask Brent or I for advice.   
+Note: take home homeworks should be treated like exams. No discussing of questions or sharing code. Any duplicate code will result in zero points for that section. In the past this has frustrated people. However, the necessary code is 1. mostly available in the lectures and 2. able to be found online with some simple searches. The struggle of not having your code immediately work is real and is experienced by everyone. This is normal and thus should be expected. Thus, please give yourself ample time to work on these takehome projects. Getting practice to search for and deal with code problems is a useful skill set to develop. If you are hitting your head against a wall for hours please ask Brent, Shelly or I for advice.   
 
 **Grades**:   
 100%   - A+  
@@ -71,12 +75,12 @@ Note that dates and readings are tentative. Topics will likely shift; all change
 | Week | Date  |  Topic                                 |LSR readings       | Additional Readings  |
 -------|-------|----------------------------------------|--------------------|----------------------|
 | 1    | 1/14  | Recap and GLM intro           |                   |Cumming's new stat, if needed|
-| -    | 1/16  | GLM and Categorical predictors       |                    |                  |
+| -    | 1/16  | GLM and Categorical predictors  |   (re-read 13-14 for review) |               |
 | 2    | 1/21  | Correlation                       |                    | Correlation Revelle  |
 | -    | 1/23  | Correlation                  |                  |                      |
-| 3    | 1/28  | Univariate Regression    |   Chapter 15               |                      |
+| 3    | 1/28  | Univariate Regression    |  15.1-15.2               |                      |
 | -    | 1/30  | Univariate Regression            |                  |  MR Cohen chapter     |
-| 4    | 2/4   | Partial Correlations              |                  |                      |
+| 4    | 2/4   | Partial Correlations              |   15.3- end of chapter               |                      |
 | -    | 2/6   | Multiple Regression                    |                  |      |
 | 5    | 2/11  | Multiple Regression                |                  |                      |
 | -    | 2/13  | Multiple Regression         |                  |                      |
@@ -84,22 +88,22 @@ Note that dates and readings are tentative. Topics will likely shift; all change
 | -    | 2/20  | **Exam 1**          |                    |                      |
 | 7    | 2/25  | Assumptions, model diagnostics                  |                    |        |
 | -    | 2/27  | Assumptions, model diagnostics          |               |                      |
-| 8    | 3/3   | Moderation/interaction          |                    |                      |
+| 8    | 3/3   | Moderation/interaction          |                    |  Aiken  Chapter                     |
 | -    | 3/5   | Moderation/interaction           |                     | Aiken  Chapter        |
 | 9    | 3/10  | **Spring Break!**                |                      |                      |
 | -    | 3/12  | **Spring Break!**                 |                     |                      |
 | 10   | 3/17  | Polynomials                     |                   |          |
-| -    | 3/19  | Factorial ANOVA                 |    Chapter 16                  |   Myers chapter   |
-| 11   | 3/24  | Factorial ANOVA     |    Chapter 16          |        Myers chapter         |
+| -    | 3/19  | Factorial ANOVA                 |    Chapter 16                  |     |
+| 11   | 3/24  | Factorial ANOVA     |            |        Myers chapter         |
 | -    | 3/26  | Cont and cat predictors (ANCOVA)              |                     |       |
-| 12   | 3/31  | Logistic regression/GLM     |                 |                      |
-| -    | 4/2   | Over/underfitting and validation    |            |     |Cohen Logistic Chapter 
-| 13   | 4/7   | Repeated measures/MLM              |      Yarkoni Westfall     |    |
-| -    | 4/9   | Repeated measures/MLM        |   Hoffman BRM             |                      |
+| 12   | 3/31  | Logistic regression/GLM     |        |   Cohen Logistic Chapter        |
+| -    | 4/2   | Over/underfitting and validation    |            |  Yarkoni Westfall paper  | 
+| 13   | 4/7   | Repeated measures/MLM              |           | Hoffman BRM   |
+| -    | 4/9   | Repeated measures/MLM        |                |                      |
 | 14   | 4/14  | Repeated measures/MLM                                  |                      |
 | -    | 4/16  | **Exam 2**                 |             |          |
 | 15   | 4/21  | Bayesian statistics     |  Chapter 17      | Kruschke PBR                     |
 | -    | 4/23  | Bayesian regression             |                      |                      |
-| -    | 5/5   | **Final Exam**             |                      |                      |
+| -    | 5/5   | **Final Exam**       |        TIME TBA              |                      |
 
 

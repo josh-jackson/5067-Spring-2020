@@ -5,7 +5,7 @@ date: "1/11/2020"
 output: html_document
 ---
 
-# Text Books
+# Textbooks
 
 1. Learning Stats with R by Danielle Navarro
 https://learningstatisticswithr.com

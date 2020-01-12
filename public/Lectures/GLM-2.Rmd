@@ -4,6 +4,7 @@ author: Josh Jackson
 date: "1-16-20"
 output:
   xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
     lib_dir: libs
     css: xaringan-themer.css
     seal: false
@@ -733,7 +734,7 @@ $$\frac{s_{regression}^2}{s_{y}^2} = \frac{SS_{regression}}{SS_{Y}} = R^2$$
 - Another way of asking how much variance group status explains
 
 ---
-# R squared and Eta squared
+## R squared and Eta squared
 
 ```{r}
 summary(mod.1)$r.squared
@@ -746,7 +747,7 @@ etaSquared(mod.1)
 ```
 
 ---
-# R squared for different coding schemes
+## R squared for different coding schemes
 .small[
 ```{r}
 tidy(anova(mod.1))
@@ -757,8 +758,8 @@ tidy(anova(mod.1.eff))
 ```
 ]
 ---
-.small[]
-# Note that the R2 p-value
+.small[
+# Note the R2 p-value
 ```{r,echo=FALSE}
 summary(mod.1)
 ```

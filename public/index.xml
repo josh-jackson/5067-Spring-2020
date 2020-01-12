@@ -20,8 +20,8 @@
       <description>
 
 
-&lt;p&gt;This is the website for psych 5067 quantitative methods II. Everything that you need should be included in this website, sans lectures. Changes to syllabus, updates, and timely links will be shared on this landing page. Please check this home page weekly.&lt;/p&gt;
-&lt;p&gt;There are also links to the lectures, syllabus, homeworks and readings. Links will be provided for any datasets that will be used for homework.&lt;/p&gt;
+&lt;p&gt;This is the website for psych 5067 quantitative methods II. Everything that you need for the class should be included in this website, sans attending the lectures. Changes to syllabus, updates, and timely links will be shared on this landing page. Please check this home page weekly.&lt;/p&gt;
+&lt;p&gt;There are also links to the lecture slides, syllabus, homeworks, and readings. Links will be provided for any datasets that will be used for homework.&lt;/p&gt;
 </description>
     </item>
     
@@ -91,14 +91,16 @@
 &lt;p&gt;&lt;strong&gt;Instructor&lt;/strong&gt;: Joshua Jackson&lt;br /&gt;
 &lt;strong&gt;Office&lt;/strong&gt;: Room #315B&lt;br /&gt;
 &lt;strong&gt;Office hours&lt;/strong&gt;: 10-11 Wednesday and by appointment&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TA&lt;/strong&gt;: Brent Rappaport&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;AI&lt;/strong&gt;: Brent Rappaport&lt;br /&gt;
 &lt;strong&gt;Office&lt;/strong&gt;: Room 340A
 &lt;strong&gt;Office hours&lt;/strong&gt;: Thursday 10:50-12:30&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Super AI&lt;/strong&gt;: Shelly Cooper
+&lt;strong&gt;Office&lt;/strong&gt;: Room 105&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;course-descrition&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Course Descrition&lt;/h4&gt;
-&lt;p&gt;This course will provide a detailed overview of multiple regression as a data-analytic method. The course provides a conceptual background of the central ideas and applications along with the necessary applied skills to carry out analyses of continunous and categorical data. The analytic approaches are thus applicable to experimental research in which factors are manipulated and to observational research. Goals are threefold: (1) learn how to look at and think about data – to check for problems in regression models, errors in computer outputs, identify missuses of regression, (2) be able to examine the relationship among regression models, theoretical models, and your data, and (3) construct regression equations to examine specific hypotheses and interpret resulting models and regression coefficients.&lt;/p&gt;
+&lt;div id=&#34;course-description&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Course Description&lt;/h4&gt;
+&lt;p&gt;This course will provide a detailed overview of multiple regression as a data-analytic method. The course provides a conceptual background of the central ideas and applications along with the necessary applied skills to carry out analyses of continuous and categorical data. The analytic approaches are thus applicable to experimental research in which factors are manipulated and to observational research. Goals are threefold: (1) learn how to look at and think about data – to check for problems in regression models, errors in computer outputs, identify missuses of regression, (2) be able to examine the relationship among regression models, theoretical models, and your data, and (3) construct regression equations to examine specific hypotheses and interpret resulting models and regression coefficients.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;class-textbook&#34; class=&#34;section level4&#34;&gt;
@@ -119,7 +121,7 @@
 &lt;p&gt;The class consists of 2 in class tests, a cumulative final exam, 7 take home exams ie homeworks, and one oral “exam”. The 2 in class exams make up 40% of your grade (20% each). The final exam will account for 20%. The 7 take home projects fulfills 35% of your final grade (5% each) while the oral exam will make up the remaining 5%.&lt;/p&gt;
 &lt;p&gt;Typically, grades are “curved,” but not to a predefined distribution. The curve will always be in a manner that will help people, not hurt.&lt;/p&gt;
 &lt;p&gt;Due dates for exams and other project details will be listed on the announcements/home page. Expect exact dates to change throughout the semester so be sure to check the site frequently.&lt;/p&gt;
-&lt;p&gt;Note: take home homeworks should be treated like exams. No discussing of questions or sharing code. Any duplicate code will result in zero points for that section. In the past this has frustrated people. However, the necessary code is 1. mostly available in the lectures and 2. able to be found online with some simple searches. The struggle of not having your code immediately work is real and is experienced by everyone. This is normal and thus should be expected. Thus, please give yourself ample time to work on these takehome projects. The struggle is also something you will encounter. Getting practice to search for and deal with problems is a useful skillset. If you are hitting your head against a wall for hours please ask Brent or I for advice.&lt;/p&gt;
+&lt;p&gt;Note: take home homeworks should be treated like exams. No discussing of questions or sharing code. Any duplicate code will result in zero points for that section. In the past this has frustrated people. However, the necessary code is 1. mostly available in the lectures and 2. able to be found online with some simple searches. The struggle of not having your code immediately work is real and is experienced by everyone. This is normal and thus should be expected. Thus, please give yourself ample time to work on these takehome projects. Getting practice to search for and deal with code problems is a useful skill set to develop. If you are hitting your head against a wall for hours please ask Brent, Shelly or I for advice.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Grades&lt;/strong&gt;:&lt;br /&gt;
 100% - A+&lt;br /&gt;
 99-92 - A&lt;br /&gt;
@@ -157,7 +159,7 @@
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;1/16&lt;/td&gt;
 &lt;td&gt;GLM and Categorical predictors&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;(re-read 13-14 for review)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
@@ -178,7 +180,7 @@
 &lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;1/28&lt;/td&gt;
 &lt;td&gt;Univariate Regression&lt;/td&gt;
-&lt;td&gt;Chapter 15&lt;/td&gt;
+&lt;td&gt;15.1-15.2&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
@@ -192,7 +194,7 @@
 &lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;2/4&lt;/td&gt;
 &lt;td&gt;Partial Correlations&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;15.3- end of chapter&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
@@ -249,7 +251,7 @@
 &lt;td&gt;3/3&lt;/td&gt;
 &lt;td&gt;Moderation/interaction&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Aiken Chapter&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
@@ -284,13 +286,13 @@
 &lt;td&gt;3/19&lt;/td&gt;
 &lt;td&gt;Factorial ANOVA&lt;/td&gt;
 &lt;td&gt;Chapter 16&lt;/td&gt;
-&lt;td&gt;Myers chapter&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;11&lt;/td&gt;
 &lt;td&gt;3/24&lt;/td&gt;
 &lt;td&gt;Factorial ANOVA&lt;/td&gt;
-&lt;td&gt;Chapter 16&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;Myers chapter&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
@@ -305,27 +307,27 @@
 &lt;td&gt;3/31&lt;/td&gt;
 &lt;td&gt;Logistic regression/GLM&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Cohen Logistic Chapter&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;4/2&lt;/td&gt;
 &lt;td&gt;Over/underfitting and validation&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Yarkoni Westfall paper&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;13&lt;/td&gt;
 &lt;td&gt;4/7&lt;/td&gt;
 &lt;td&gt;Repeated measures/MLM&lt;/td&gt;
-&lt;td&gt;Yarkoni Westfall&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Hoffman BRM&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;4/9&lt;/td&gt;
 &lt;td&gt;Repeated measures/MLM&lt;/td&gt;
-&lt;td&gt;Hoffman BRM&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
@@ -360,7 +362,7 @@
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;5/5&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Final Exam&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;TIME TBA&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -377,8 +379,8 @@
       <description>
 
 
-&lt;div id=&#34;text-books&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Text Books&lt;/h1&gt;
+&lt;div id=&#34;textbooks&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Textbooks&lt;/h1&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Learning Stats with R by Danielle Navarro
 &lt;a href=&#34;https://learningstatisticswithr.com&#34; class=&#34;uri&#34;&gt;https://learningstatisticswithr.com&lt;/a&gt;

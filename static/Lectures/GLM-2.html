@@ -1064,7 +1064,7 @@ $$ \sum (Y_i - \bar{Y})^2 = \sum (\hat{Y}_i -\bar{Y})^2 + \sum(Y_i - \hat{Y}_i)^
 - Another way of asking how much variance group status explains
 
 ---
-# R squared and Eta squared
+## R squared and Eta squared
 
 
 ```r
@@ -1088,7 +1088,7 @@ etaSquared(mod.1)
 ```
 
 ---
-# R squared for different coding schemes
+## R squared for different coding schemes
 .small[
 
 ```r
@@ -1117,8 +1117,8 @@ tidy(anova(mod.1.eff))
 ```
 ]
 ---
-.small[]
-# Note that the R2 p-value
+.small[
+# Note the R2 p-value
 
 ```
 ## 
@@ -1250,7 +1250,7 @@ slideshow._releaseMath(document);
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);
