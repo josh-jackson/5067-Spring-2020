@@ -1,10 +1,19 @@
 ---
-title: ""
+title: "Homeworks"
 author: "Josh Jackson"
 date: "1/11/2020"
 output: html_document
 ---
 
-# Homeworks
 
-Information about your takehome projects will eventually go here. 
+## Homework protocol
+
+Each will be turned in via email to a box.com address specific to the take home. For each you will need to attach to the email 1) an rmd or a rnw file of your code and answers and 2) a pdf of said file. Use your last name to label the files (e.g,. “Jackson_takehome1”) and include your name as part of the document front-/top-matter.
+
+All take home projects are INDEPENDENT projects; do not share code or answers.
+
+Note: In some instances I describe doing a question “by hand,” which means using the formulas to calculate the answers. This is contrasted with the simpler way of using R functions. It is recommended to use R functions if the “by hand” method is not explicitly stated; quicker & simpler is often preferred. 
+
+# Take home #1
+Information will soon be given
+

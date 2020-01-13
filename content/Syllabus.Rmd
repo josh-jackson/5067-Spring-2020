@@ -13,10 +13,10 @@ output:
 **Office hours**: 10-11 Wednesday and by appointment  
 
 **AI**: Brent Rappaport  
-**Office**: Room 340A
+**Office**: Room 340A 
 **Office hours**: Thursday 10:50-12:30 
 
-**Super AI**: Shelly Cooper 
+**Super AI**: Shelly Cooper  
 **Office**: Room 105
 
 

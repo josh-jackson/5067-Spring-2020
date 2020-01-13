@@ -44,16 +44,22 @@
     </item>
     
     <item>
-      <title></title>
+      <title>Homeworks</title>
       <link>/homeworks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/homeworks/</guid>
       <description>
 
 
-&lt;div id=&#34;homeworks&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Homeworks&lt;/h1&gt;
-&lt;p&gt;Information about your takehome projects will eventually go here.&lt;/p&gt;
+&lt;div id=&#34;homework-protocol&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Homework protocol&lt;/h2&gt;
+&lt;p&gt;Each will be turned in via email to a box.com address specific to the take home. For each you will need to attach to the email 1) an rmd or a rnw file of your code and answers and 2) a pdf of said file. Use your last name to label the files (e.g,. “Jackson_takehome1”) and include your name as part of the document front-/top-matter.&lt;/p&gt;
+&lt;p&gt;All take home projects are INDEPENDENT projects; do not share code or answers.&lt;/p&gt;
+&lt;p&gt;Note: In some instances I describe doing a question “by hand,” which means using the formulas to calculate the answers. This is contrasted with the simpler way of using R functions. It is recommended to use R functions if the “by hand” method is not explicitly stated; quicker &amp;amp; simpler is often preferred.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;take-home-1&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Take home #1&lt;/h1&gt;
+&lt;p&gt;Information will soon be given&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -94,7 +100,7 @@
 &lt;p&gt;&lt;strong&gt;AI&lt;/strong&gt;: Brent Rappaport&lt;br /&gt;
 &lt;strong&gt;Office&lt;/strong&gt;: Room 340A
 &lt;strong&gt;Office hours&lt;/strong&gt;: Thursday 10:50-12:30&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Super AI&lt;/strong&gt;: Shelly Cooper
+&lt;p&gt;&lt;strong&gt;Super AI&lt;/strong&gt;: Shelly Cooper&lt;br /&gt;
 &lt;strong&gt;Office&lt;/strong&gt;: Room 105&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -382,9 +388,9 @@
 &lt;div id=&#34;textbooks&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Textbooks&lt;/h1&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Learning Stats with R by Danielle Navarro
-&lt;a href=&#34;https://learningstatisticswithr.com&#34; class=&#34;uri&#34;&gt;https://learningstatisticswithr.com&lt;/a&gt;
-html version: &lt;a href=&#34;https://learningstatisticswithr.com/book/&#34; class=&#34;uri&#34;&gt;https://learningstatisticswithr.com/book/&lt;/a&gt;
+&lt;li&gt;&lt;p&gt;Learning Stats with R by Danielle Navarro&lt;br /&gt;
+&lt;a href=&#34;https://learningstatisticswithr.com&#34; class=&#34;uri&#34;&gt;https://learningstatisticswithr.com&lt;/a&gt;&lt;br /&gt;
+html version: &lt;a href=&#34;https://learningstatisticswithr.com/book/&#34; class=&#34;uri&#34;&gt;https://learningstatisticswithr.com/book/&lt;/a&gt;&lt;br /&gt;
 pdf version: &lt;a href=&#34;https://learningstatisticswithr.com/lsr-0.6.pdf&#34; class=&#34;uri&#34;&gt;https://learningstatisticswithr.com/lsr-0.6.pdf&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;If you were asleep most of last semester and/or have amazon giftcards to burn check out the new statistics: &lt;a href=&#34;https://thenewstatistics.com/itns/&#34; class=&#34;uri&#34;&gt;https://thenewstatistics.com/itns/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
