@@ -111,6 +111,9 @@ $$Y_i = b_{0} + b_{1}X_i +e_i$$
 - Error/Residuals $e$
 - Predictions  $\hat{Y}$
 
+
+- $Y_i \sim Normal(\mu, \sigma)$
+- The DV Y for each person i is distributed normaly, with a mean of mu and a standard deviation of sigma
 ---
 
 # Regression models
@@ -119,7 +122,7 @@ $$Y_i = b_{0} + b_{1}X_i +e_i$$
 
 - We can use these models to get information we may be interested in (e.g. means, SEs) and test hypotheses about the relationship among variables
 
-- "All models are wrong but some are useful (and some are better than others" 
+- "All models are wrong but some are useful (and some are better than others)" 
 
 ---
 class: clear
@@ -132,8 +135,10 @@ example.data <- read_csv("example.data.csv")
 
 ```
 Example
-- Get this data at my github account: https://github.com/josh-jackson/Psych5067
+- Get this data at the class github account: https://github.com/josh-jackson/5067-Spring-2020/tree/master/static/Lectures
 ]
+or 
+- https://bit.ly/2u2vu18
 
 .pull-right[
 ```{r}
@@ -296,7 +301,7 @@ ggplot(example.data, aes(x=tx, y=traffic.risk)) +
 
 .pull-right[
 This is what it looks like if we wanted to put a "regression line" to the data. 
-Note that the same interpretation for a regression line holds: for a 1 unit change in X (tx) there is a predicted change in Y (traffic risk)
+Note that the same interpretation for a regression line holds: for a 1 unit change in X (tx) there is a predicted b change in Y (traffic risk)
 ]
 ---
 
@@ -306,7 +311,7 @@ Note that the same interpretation for a regression line holds: for a 1 unit chan
 - Intercept (b0) signifies the level of Y when your model IVs (Xs) are zero 
 - Regression (b1) signifies the difference for a one unit change in your X
 
-- as with last semester you have estimates (like $\bar{x}$) and standard errors, which you can then ask whether they are likely assuming a null or create a CI
+- As with last semester you have estimates (like $\bar{x}$) and standard errors, which you can then ask whether they are likely assuming a null or create a CI
 
 ---
 # Predicted scores
