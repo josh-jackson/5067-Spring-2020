@@ -312,7 +312,7 @@ Same method as IV (method variance)?
 ---
 # Power calculations
 
-.tiny[
+.small[
 ```{r}
 library(pwr)
 pwr.r.test(n = , r = .1, sig.level = .05 , power = .8)
@@ -329,11 +329,15 @@ pwr.r.test(n = , r = .3, sig.level = .05 , power = .8)
 
 ---
 # Fisher’s r to z’ transformation
+
 .pull-left[
 - If we want to make calculations based on $\rho \neq 0$ then we will run into a skewed sampling distribution
 ]
 
 .pull-right[
+
+- If we want to make calculations based on $\rho \neq 0$ then we will run into a skewed sampling distribution
+
  
 ```{r,echo=FALSE, cache=TRUE }
 library(ggplot2)
@@ -349,7 +353,9 @@ correlation <- as.data.frame(ivec)
 correlation$cor <- correlation$ivec
 ggplot(correlation, aes(cor)) + geom_histogram(breaks=seq(.85, .99, by = .001), aes(y = ..density..)) + geom_density()
 ```
+
 ]
+
 
 ---
 # Fisher’s r to z’ transformation
@@ -364,8 +370,9 @@ $$z^{'} = {\frac{1}{2}}ln{\frac{1+r}{1-r}}$$
 # Fisher’s r to z’ transformation
 
 .center[
-![](../img/fisher.png =300x300)
-]
+
+![](../img/fisher.png)
+
 
 
 ---
