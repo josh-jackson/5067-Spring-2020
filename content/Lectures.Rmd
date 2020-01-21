@@ -5,8 +5,12 @@ date: "1/8/2020"
 output: html_document
 ---
 
-## Week 1, class 1
+## Correlations Week 2
+[Correlation Slides](/Lectures/Correlations-3.html)
+
+## GLM Week 1
+[GLM Slides](/Lectures/GLM-2.html)
+
+## INTRO Week 1
 [Introduction Slides](/Lectures/Introduction-1.html)
 
-## Week 1, class 2
-[GLM Slides](/Lectures/GLM-2.html)

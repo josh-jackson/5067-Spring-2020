@@ -76,8 +76,8 @@ Note that dates and readings are tentative. Topics will likely shift; all change
 -------|-------|----------------------------------------|--------------------|----------------------|
 | 1    | 1/14  | Recap and GLM intro           |                   |Cumming's new stat, if needed|
 | -    | 1/16  | GLM and Categorical predictors  |   (re-read 13-14 for review) |               |
-| 2    | 1/21  | Correlation                       |                    | Correlation Revelle  |
-| -    | 1/23  | Correlation                  |                  |                      |
+| 2    | 1/21  | GLM and Categorical predictors     |                    |   |
+| -    | 1/23  | Correlation                  |              |  Correlation Revelle      |
 | 3    | 1/28  | Univariate Regression    |  15.1-15.2               |                      |
 | -    | 1/30  | Univariate Regression            |                  |  MR Cohen chapter     |
 | 4    | 2/4   | Partial Correlations              |   15.3- end of chapter               |                      |
