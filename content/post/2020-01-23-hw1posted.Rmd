@@ -1,0 +1,21 @@
+---
+title: Homework posted
+author: ''
+date: '2020-01-23'
+slug: hw1posted
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-01-23T08:15:33-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+ Takehome project/homework #1 is posted on the homeworks page. Due date is 2/3. 
+
