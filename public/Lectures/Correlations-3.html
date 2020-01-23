@@ -45,7 +45,7 @@
 
 - Measuring relationships depend on type of measurement
 
-- You have primarily been working wtih categorical IVs (t-test, ANOVA, chi-square)
+- You have primarily been working with categorical IVs (t-test, ANOVA, chi-square)
 
 ---
 # Scatter Plot with best fit line
@@ -161,7 +161,7 @@ Assumes:
 ---
 # Test statistic
 
-As will most all test statistics they take hte form of "signal" divided by "noise"
+As with most all test statistics they take the form of "signal" divided by "noise"
 `$$t = {\frac{r}{SE_{r}}}$$`
 
 Our standard error is interpreted like other standard errors 
@@ -241,7 +241,7 @@ Same method as IV (method variance)?
 ---
 # Power calculations
 
-.small[
+.tiny[
 
 ```r
 library(pwr)
@@ -289,10 +289,9 @@ pwr.r.test(n = , r = .3, sig.level = .05 , power = .8)
 - If we want to make calculations based on `\(\rho \neq 0\)` then we will run into a skewed sampling distribution
 ]
 
+
+
 .pull-right[
-
-- If we want to make calculations based on `\(\rho \neq 0\)` then we will run into a skewed sampling distribution
-
  
 &lt;img src="Correlations-3_files/figure-html/unnamed-chunk-6-1.png" width="504" /&gt;
 
@@ -311,18 +310,22 @@ pwr.r.test(n = , r = .3, sig.level = .05 , power = .8)
 ---
 # Fisher’s r to z’ transformation
 
-.center[
+&lt;img src="../img/fisher.png" width="50%" /&gt;
 
-![](../img/fisher.png)
+---
+# Fisher’s r to z’ transformation
 
+- Because the distribution is normal, you can use the z' as you would with the z tests last semester. 1 sample, 2 sample, calculate confidence interval...
 
+- For a one sample test the standard error is 
+`$$se_{z'} = {\frac{1}{\sqrt {N-3}}}$$` 
 
 ---
 #  Steps for computing confidence interval
 
 1. Transform r into z'  
 2. Compute CI as you normally would using z'  
-3. revert back to r  
+3. Revert back to r  
 
 $$ r = {\frac{e^{2z'}-1}{e^{2z'}+1}} $$
 
@@ -346,15 +349,15 @@ fisherz2r(z)
 ---
 
 # Two independent groups test
-- different standard error compared to 1 sample test
+- Different standard error compared to 1 sample test
 `$$Z = {\frac{z'_{1}-z'_{2}}{se_{z1-z2}}}$$`
-`$$se_{z1-z2} = {\sqrt {se_{z1} + se_{z1}}} = {\sqrt {\frac{1}{n_{1}-3}+{\frac{1}{n_{2}-3}}}}$$`
-- but probably best to do this test in another framework (e.g., GLM via interaction, SEM)
+`$$se_{z1-z2} =  {\sqrt {\frac{1}{n_{1}-3}+{\frac{1}{n_{2}-3}}}}$$`
+- But probably best to do this test in another framework (e.g., GLM via interaction, SEM)
 
 ---
 
 # Other correlation tests:
-1. Set of correltions
+1. Set of correlations
 2. Dependent correlations (i.e., within same group)  
   These are more easily tested via Structural Equation Modeling (SEM)
 3. Intra Class Correlation (ICC)
@@ -386,7 +389,7 @@ fisherz2r(z)
   - assessment via trained clinician vs tarot cards?  
   - fMRI during minor earthquake vs no earthquake?  
 
----  
+---
 # Reliability
 
 - Cannot correlate error (randomness) with something
@@ -396,15 +399,15 @@ fisherz2r(z)
 ---
 # Reliability
 
-- think of reliability as a correlation with a measure and itself in a different world, at a different time, or a different but equal version
+- Think of reliability as a correlation with a measure and itself in a different world, at a different time, or a different but equal version
 
 `$$r_{XX}$$`
 
 ---
 # Reliability
 
-- true score variance divided by observed variance
-- how do you assess theoretical variance i.e., true score variance? 
+- True score variance divided by observed variance
+- How do you assess theoretical variance i.e., true score variance? 
 
 `$$r_{XY} = r_{X_{T} Y_{T}} {\sqrt{r_{XX}r_{YY}}}$$`
 `$$r_{XY} = .6 {\sqrt {(.70) (.70)}}$$`
@@ -420,7 +423,7 @@ fisherz2r(z)
 ---
 # Most common ways to assess
 
-- cronbachs alpha 
+- Cronbachs alpha 
 
 ```r
 library (psych)
@@ -428,7 +431,7 @@ alpha(measure)
 ## Gives average split half correlation
 ## Can tell you if you are assessing a single construct
 ```
-- test - retest reliability
+- Test - retest reliability
 - Kappa or ICC
 
 ---
@@ -436,7 +439,7 @@ alpha(measure)
 
 - if you are going to measure something do it well
 - applies to ALL IVs and DVs, and all designs
-- remember this when interpretting other's research
+- remember this when interpreting others research
 
 ---
 # Types of correlations
@@ -447,15 +450,15 @@ alpha(measure)
 ---
 # Types of correlations
 1. Point Biserial
-    +  continuous and dichtomous
+    +  continuous and dichotomous
 2. Phi coefficient
     + both dichotomous
 3. Spearman rank order
     + ranked data (nonparametric)
-4. Biserial (assumes dichotomous is continous)
-5. Tetrachoric (assumes dichotomous is continous)
+4. Biserial (assumes dichotomous is continuous)
+5. Tetrachoric (assumes dichotomous is continuous)
     + both dichotomous
-6. Polychoric (assumes continous)
+6. Polychoric (assumes continuous)
     + ordinal
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

@@ -14,6 +14,8 @@ All take home projects are INDEPENDENT projects; do not share code or answers.
 
 Note: In some instances I describe doing a question “by hand,” which means using the formulas to calculate the answers. This is contrasted with the simpler way of using R functions. It is recommended to use R functions if the “by hand” method is not explicitly stated; quicker & simpler is often preferred. 
 
-# Take home #1
-Information will soon be given
+
+# Take home homeworks
+
+[Take home #1](/Homeworks/Takehome-1.html)
 
