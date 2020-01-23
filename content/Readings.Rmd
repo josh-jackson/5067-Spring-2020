@@ -16,4 +16,4 @@ pdf version: https://learningstatisticswithr.com/lsr-0.6.pdf
 
 # Individual papers and chapters
 
-COMING SOON. Insert construction cone. 
+[Correlations](/Readings/Correlations.pdf)
