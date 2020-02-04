@@ -362,7 +362,7 @@ $${SS_{residual}} = (1- R^2){SS_{Y}}$$
 ---
 # Mean square error (MSE)
 - AKA means square residual/within
-- AKA square root of residual standard error (sigma)
+- AKA square of residual standard error/deviation (sigma)
 - Unbiased estimate of error variance
 - Measure of discrepancy between the data and the model
 - The MSE is the variance of data around the fitted regression line

@@ -5,12 +5,24 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>5067 Quantitative Methods II</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>5067 Quantitative Methods II</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>HW2 Posted</title>
+      <link>/post/hw2-posted/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/hw2-posted/</guid>
+      <description>
+
+
+&lt;p&gt;Check out homework #2. Due 2/17&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Homework posted</title>
@@ -72,6 +84,7 @@
 &lt;div id=&#34;take-home-homeworks&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Take home homeworks&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;/Homeworks/Takehome-1.html&#34;&gt;Take home #1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/Homeworks/Takehome-2.html&#34;&gt;Take home #2&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -84,6 +97,10 @@
       <description>
 
 
+&lt;div id=&#34;multiple-regression-week-4-5&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Multiple Regression Week 4 &amp;amp; 5&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;/Lectures/multregression-5.html&#34;&gt;Multiple Regression Slides&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;regression-week-3&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Regression Week 3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;/Lectures/regression-4.html&#34;&gt;Regression Slides&lt;/a&gt;&lt;/p&gt;
@@ -418,6 +435,8 @@ pdf version: &lt;a href=&#34;https://learningstatisticswithr.com/lsr-0.6.pdf&#34
 &lt;div id=&#34;individual-papers-and-chapters&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Individual papers and chapters&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;/Readings/Correlations.pdf&#34;&gt;Correlations&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/Readings/Cohen-MR.pdf&#34;&gt;Multiple Regression Cohen Chapter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/Readings/Dawtry2015-PS.pdf&#34;&gt;Dawtry et al 2015 Psych Science for HW#2&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

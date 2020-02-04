@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Multiple Regression</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Josh Jackson" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 4em 1em 4em;
+}
+
+.small .remark-code { 
+  font-size: 80% !important;
+}
+.tiny .remark-code {
+  font-size: 65% !important;
+}
+&lt;/style&gt;
+
+# This time/Last time
+- Used a single coninuous predictors in a GLM
+- Extending the GLM to multiple predictors
+
+---
+## Causal relationships
+- Does parent SES cause better grades?
+    + r(gpa, ses) = .33, b = .41
+- Potential confound of peer relationships
+    + r(ses, peer) = .29
+    + r(gpa, peer) = .37
+    
+---
+## Multiple ways variables can relate
+- Spurious relationship
+- Indirect (mediation)
+- Moderate (interaction)
+- Multiple "causes"
+
+---
+## Multiple regression model
+
+`$$\hat{Y} = b_{0} + b_{1}X_{1} + b_{2}X_{2}+...+b_{p}X_{p}$$`
+
+---
+## Coefficient of Determination
+
+`$$R^2 = \frac{SS_{reggression}} {SS_{Y}} = \frac{s_{\hat{Y}}^2}{s_{Y}^2}$$`
+
+---
+## GPA = SES + Peer relationships
+-Can be thought of as overlapping Venn diagrams
+
+&lt;img src="../img/R2-1.png" width="50%" /&gt;
+
+
+---
+## redundent vs non-redundent information 
+
+&lt;img src="../img/R2.png" width="80%" /&gt;
+
+---
+## Types of correlations
+- Pearson (our standard correlation measure) ignores all outside variables  
+- Also called bi-variate correlation   
+
+--
+
+- Semi-partial: the extent to which the part of X1 that is independent of x2 correlates with all of Y
+    
+---
+## Semi-partial
+
+&lt;img src="../img/R2-2.png" width="50%" /&gt;
+
+---
+## Semi-partial
+`$$sr = r_{y(1.2)} = \frac{r_{Y1}-r_{Y2}r_{12} }{\sqrt{1-r_{12}^2}}$$`
+`$$sr^2 = R_{Y.12}^2 - r_{Y2}^2$$`
+
+---
+## Types of correlations
+- Partial  
+- The extent to which the part of X1  that is independent of X2  is correlated with the part of Y that is also independent of X2 
+
+---
+## Partial correlation
+
+&lt;img src="../img/R2-3.png" width="50%" /&gt;
+
+---
+## Partial correlation
+`$$pr = r_{y1.2} = \frac{r_{Y1}-r_{Y2}r_{12} }{\sqrt{1-r_{Y2}^2}\sqrt{1-r_{12}^2}}$$`
+
+`$$sr = r_{y(1.2)} = \frac{r_{Y1}-r_{Y2}r_{Y12} }{\sqrt{1-r_{12}^2}}$$`
+---
+## Partial correlation
+
+`$$pr^2 = \frac{R_{Y.12}^2 - r_{Y2}^2}{1-r_{Y2}^2}$$`
+
+`$$sr^2 = R_{Y.12}^2 - r_{Y2}^2$$`
+---
+## Interpretting multiple regression model
+`$$\hat{Y} = b_{0} + b_{1}X_{1} + b_{2}X_{2}+...+b_{p}X_{p}$$`  
+- Intercept is when all predictors = 0  
+- Regression coefficients are "partial" regression coefficients  
+- Predicted change in y for a 1 unit change in x, *holding all other predictors constant* 
+- Similar to semi-partial correlation in that Y variance is left alone
+
+---
+## How to interpret multiple regression cofficients? 
+- Residual in simple regression can be thought of as a measure of Y that is left over after accounting for your DV
+- Partial correlation can be created by:  
+    1. create measure of X1 independent of X2
+    2. create measure of Y independent of X2
+    3. correlate new measures
+
+---
+## Example
+.tiny[
+
+
+```r
+mr.model &lt;- lm(Stress ~ Support + Anxiety, data = Multipleregression)
+summary(mr.model)
+```
+
+```
+## 
+## Call:
+## lm(formula = Stress ~ Support + Anxiety, data = Multipleregression)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1958 -0.8994 -0.1370  0.9990  3.6995 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.31587    0.85596  -0.369 0.712792    
+## Support      0.40618    0.05115   7.941 1.49e-12 ***
+## Anxiety      0.25609    0.06740   3.799 0.000234 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.519 on 115 degrees of freedom
+## Multiple R-squared:  0.3556,	Adjusted R-squared:  0.3444 
+## F-statistic: 31.73 on 2 and 115 DF,  p-value: 1.062e-11
+```
+]
+---
+
+```r
+library(visreg)
+visreg2d(mr.model,"Support", "Anxiety", plot.type = "persp")
+```
+
+![](multregression-5_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+---
+## OLS
+- similar to before
+`$$\hat{z}_{Y} = b_{1}^*Z_{X1} + b_{2}^*Z_{X2}$$`
+`$$minimize \sum (z_{Y}-\hat{z}_{Y})^2$$`
+
+---
+## Standardized partial regression coefficient
+`$$b_{1}^* = \frac{r_{Y1}-r_{Y2}r_{12}}{1-r_{12}^2}$$`
+
+`$$b_{2}^* = \frac{r_{Y2}-r_{Y1}r_{12}}{1-r_{12}^2}$$`
+---
+## Notice similarity with semi-partial correlation
+
+`$$b_{1}^* = \frac{r_{Y1}-r_{Y2}r_{12}}{1-r_{12}^2}$$`
+
+
+
+`$$sr = r_{y(1.2)} = \frac{r_{Y1}-r_{Y2}r_{Y12} }{\sqrt{1-r_{12}^2}}$$`
+
+---
+## Original metric
+
+`$$b_{1} = b_{1}^*\frac{s_{Y}}{s_{X1}}$$`
+
+`$$b_{1}^* = b_{1}\frac{s_{X1}}{s_{Y}}$$`
+
+---
+## Intercept
+
+`$$b_{0} = \bar{Y} - b_{1}\bar{X_{1}} - b_{2}\bar{X_{2}}$$`
+
+---
+## How to visualize "controlling for"
+.pull-left[
+![](../img/control.gif)&lt;!-- --&gt;
+]
+
+.pull-right[
+- example of x and y controlling for W. Taken from @nickchk 
+]
+
+
+
+---
+## Fit revisited
+.tiny[
+
+```
+## 
+## Call:
+## lm(formula = Stress ~ Support + Anxiety, data = Multipleregression)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1958 -0.8994 -0.1370  0.9990  3.6995 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.31587    0.85596  -0.369 0.712792    
+## Support      0.40618    0.05115   7.941 1.49e-12 ***
+## Anxiety      0.25609    0.06740   3.799 0.000234 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.519 on 115 degrees of freedom
+## Multiple R-squared:  0.3556,	Adjusted R-squared:  0.3444 
+## F-statistic: 31.73 on 2 and 115 DF,  p-value: 1.062e-11
+```
+]
+
+---
+## Multiple correlation R
+
+`$$\hat{Y} = b_{0} + b_{1}X_{1} + b_{2}X_{2}$$`
+
+
+---
+## Multiple correlation R
+
+- `\(\hat{Y}\)` is a linear combination of Xs
+- `\(r_{Y\hat{Y}}\)` = multiple correlation = R
+
+---
+## Multiple correlation R
+
+`$$R = \sqrt{b_{1}^*r_{Y1} + b_{2}^*r_{Y2}}$$`
+`$$R^2 = {b_{1}^*r_{Y1} + b_{2}^*r_{Y2}}$$`
+
+---
+
+
+&lt;img src="../img/R2-4.png" width="90%" /&gt;
+
+---
+
+&lt;img src="../img/R2-5.png" width="80%" /&gt;
+
+---
+## Significance tests
+
+- R2 (omnibus)  
+- Regression Coefficients  
+- Increments to R2  
+
+---
+## R-squared
+
+- Same as before  
+- Adding predictors into your model will increase R2 – regardless of whether or not the predictor is correlated with Y.    
+- Adjusted/Shrunken R2 takes into account the number of predictors in your model  
+    
+---
+## Adjusted R-squared
+
+`$$R_{A}^2 = 1 - (1 -R^2)\frac{n-1}{n-p-1}$$`
+---
+
+
+
+```r
+anova(mr.model)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: Stress
+##            Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Support     1 113.151 113.151  49.028 1.807e-10 ***
+## Anxiety     1  33.314  33.314  14.435 0.0002336 ***
+## Residuals 115 265.407   2.308                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+---
+.tiny[
+
+```r
+summary(mr.model)
+```
+
+```
+## 
+## Call:
+## lm(formula = Stress ~ Support + Anxiety, data = Multipleregression)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1958 -0.8994 -0.1370  0.9990  3.6995 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.31587    0.85596  -0.369 0.712792    
+## Support      0.40618    0.05115   7.941 1.49e-12 ***
+## Anxiety      0.25609    0.06740   3.799 0.000234 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.519 on 115 degrees of freedom
+## Multiple R-squared:  0.3556,	Adjusted R-squared:  0.3444 
+## F-statistic: 31.73 on 2 and 115 DF,  p-value: 1.062e-11
+```
+]
+---
+## Test of individual regression coefficients
+
+`$$H_{0}: \beta_{X}= 0$$`
+`$$H_{1}: \beta_{X} \neq 0$$`
+
+---
+## Test of individual regression coefficients
+
+`$$se_{b} = \frac{s_{Y}}{s_{X}}{\sqrt{\frac {1-r_{xy}^2}{n-2}}}$$`
+
+`$$se_{b} = \frac{s_{Y}}{s_{X}}{\sqrt{\frac {1-R_{Y\hat{Y}}^2}{n-p-1}}} \sqrt{\frac {1}{1-R_{i.jkl...p}^2}}$$`
+
+- As N increases... 
+- As variance explained increases... 
+
+---
+## Tolerance
+`$$se_{b} = \frac{s_{Y}}{s_{X}}{\sqrt{\frac {1-R_{Y\hat{Y}}^2}{n-p-1}}} \sqrt{\frac {1}{1-R_{i.jkl...p}^2}}$$`  
+
+- What cannot be explained in Xi by other predictors  
+- Large tolerance (little overlap) means standard error will be small.   
+- What does this mean for including a lot of variables in your model? 
+
+---
+## What to include?
+- Match population model (theoretically)  
+- Many variables will not bias parameter estimates but will increase degrees of freedom and standard errors, potentially
+
+---
+## Methods for entering variables
+- Simultaneous
+- Hierarchically 
+
+---
+## Simultaneous  
+- How do you interpret the regression coefficient?
+- How do you interpret the fit of the model? 
+
+---
+## Hierarchical / model comparison  
+- When you want to see if the fit of one model is better than another  
+- Aka incremental variance 
+
+--  
+ 
+- Multiple models are calculated  
+- Each predictor (or set of predictors) is assessed in terms of what it adds (in terms of variance explained) at the time it is entered   
+- Order is dependent on a priori hypothesis  
+
+
+---
+
+&lt;img src="../img/R2-6.png" width="80%" /&gt;
+
+---
+## R-square change
+- Distributed as an F
+`$$F(p.new, N - 1 - p.all) = \frac {R_{m.2}^2- R_{m.1}^2} {1-R_{m.2}^2} (\frac {N-1-p.all}{p.new})$$`
+- can also be written in terms of SSresiduals
+
+---
+## Model comparisons
+
+```r
+m.1 &lt;- lm(Stress ~ Support, data = Multipleregression)
+m.2 &lt;- lm(Stress ~ Support + Anxiety, data = Multipleregression)
+anova(m.1, m.2)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Model 1: Stress ~ Support
+## Model 2: Stress ~ Support + Anxiety
+##   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1    116 298.72                                  
+## 2    115 265.41  1    33.314 14.435 0.0002336 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+## Model comparisons
+
+```r
+anova(m.1)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: Stress
+##            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Support     1 113.15 113.151  43.939 1.12e-09 ***
+## Residuals 116 298.72   2.575                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+## Model comparisons
+
+```r
+anova(m.2)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: Stress
+##            Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Support     1 113.151 113.151  49.028 1.807e-10 ***
+## Anxiety     1  33.314  33.314  14.435 0.0002336 ***
+## Residuals 115 265.407   2.308                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+---
+## Model comparisons
+.tiny[
+
+```
+## 
+## Call:
+## lm(formula = Stress ~ Support + Anxiety, data = Multipleregression)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1958 -0.8994 -0.1370  0.9990  3.6995 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.31587    0.85596  -0.369 0.712792    
+## Support      0.40618    0.05115   7.941 1.49e-12 ***
+## Anxiety      0.25609    0.06740   3.799 0.000234 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.519 on 115 degrees of freedom
+## Multiple R-squared:  0.3556,	Adjusted R-squared:  0.3444 
+## F-statistic: 31.73 on 2 and 115 DF,  p-value: 1.062e-11
+```
+]
+---
+## Model comparisons
+.tiny[
+
+```
+## 
+## Call:
+## lm(formula = Stress ~ Support, data = Multipleregression)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.8215 -1.2145 -0.1796  1.0806  3.4326 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  2.56046    0.42189   6.069 1.66e-08 ***
+## Support      0.30006    0.04527   6.629 1.12e-09 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.605 on 116 degrees of freedom
+## Multiple R-squared:  0.2747,	Adjusted R-squared:  0.2685 
+## F-statistic: 43.94 on 1 and 116 DF,  p-value: 1.12e-09
+```
+]
+---
+## Model comparisons
+
+```r
+m.0 &lt;- lm(Stress ~ 1, data = Multipleregression)
+m.1 &lt;- lm(Stress ~ Support, data = Multipleregression)
+anova(m.0, m.1)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Model 1: Stress ~ 1
+## Model 2: Stress ~ Support
+##   Res.Df    RSS Df Sum of Sq      F   Pr(&gt;F)    
+## 1    117 411.87                                 
+## 2    116 298.72  1    113.15 43.939 1.12e-09 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+---
+## Partitioning the variance
+- It doesn't make sense to ask how much variance a variable explains (unless you qualify the association)
+
+`$$R_{Y.1234...p}^2 = r_{Y1}^2 + r_{Y(2.1)}^2 + r_{Y(3.21)}^2 + r_{Y(4.321)}^2 + ...$$`
+
+- In other words: order matters! 
+
+---
+## Group level multiple regression
+- i.e., ANOVA models  
+- Need to put numbers to our categories
+- Dummy code is default
+- Effect coding is an option
+- Other types too (though most are unhelpful)
+
+
+
+---
+## When working with factors
+- know thy class
+
+```r
+class(one.way$group)
+```
+
+```
+## [1] "factor"
+```
+
+```r
+table(one.way$group)
+```
+
+```
+## 
+## control     tx1     tx2 
+##      45     150      58
+```
+- Many base R functions automatically convert character vectors to factors
+- This is okay if you are just tossing into a regression model but problematic for many uses
+
+---
+## Group level multiple regression
+.tiny[
+
+```r
+model.1 &lt;- lm(drugs ~ group, data = one.way ) 
+summary(model.1)
+```
+
+```
+## 
+## Call:
+## lm(formula = drugs ~ group, data = one.way)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.5015 -0.1524 -0.0613 -0.0613  4.0619 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.32159    0.08964   3.588 0.000402 ***
+## grouptx1    -0.42402    0.10236  -4.142 4.73e-05 ***
+## grouptx2    -0.33289    0.11991  -2.776 0.005923 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.6013 on 247 degrees of freedom
+##   (3 observations deleted due to missingness)
+## Multiple R-squared:  0.06498,	Adjusted R-squared:  0.05741 
+## F-statistic: 8.583 on 2 and 247 DF,  p-value: 0.0002491
+```
+]
+
+---
+## What happened? 
+
+- For every nominal/categorical variable that has more than 2 levels R (default R) automatically creates L-1 dummy variables  
+
+- Each of these dummy variables consists of 0 &amp; 1s just like before, except 1 group (the reference group) only is coded as a zero
+
+- The interpretation of each coefficent is the difference between the group coded 1 and the reference group
+
+---
+## group means
+
+```r
+library(dplyr)
+(one.way %&gt;% 
+    group_by(group) %&gt;% 
+    filter(!is.na(drugs)) %&gt;% 
+    summarise(mean(drugs)))
+```
+
+```
+## # A tibble: 3 x 2
+##   group   `mean(drugs)`
+##   &lt;fct&gt;           &lt;dbl&gt;
+## 1 control        0.322 
+## 2 tx1           -0.102 
+## 3 tx2           -0.0113
+```
+
+---
+## See what R is doing with contrasts function
+- a part of every factor 
+.tiny[
+
+```r
+contrasts(one.way$group)
+```
+
+```
+##         tx1 tx2
+## control   0   0
+## tx1       1   0
+## tx2       0   1
+```
+
+```r
+# Can see the same with only 2 levels
+contrasts(Multipleregression$group)
+```
+
+```
+##         Tx
+## Control  0
+## Tx       1
+```
+]
+---
+## Reordering
+- no inherent order, so what does R spit out at you first? 
+- default is alphabetic, but what if you wanted it by another variable
+
+
+```r
+levels(one.way$group)
+```
+
+```
+## [1] "control" "tx1"     "tx2"
+```
+
+```r
+one.way$group.2 &lt;- relevel(one.way$group, "tx2")
+levels(one.way$group.2)
+```
+
+```
+## [1] "tx2"     "control" "tx1"
+```
+
+---
+
+```r
+model.2 &lt;- lm(drugs ~ group.2, data = one.way ) 
+broom::tidy(summary(model.2))
+```
+
+```
+## # A tibble: 3 x 5
+##   term           estimate std.error statistic p.value
+##   &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)     -0.0113    0.0796    -0.142 0.887  
+## 2 group.2control   0.333     0.120      2.78  0.00592
+## 3 group.2tx1      -0.0911    0.0937    -0.972 0.332
+```
+
+```r
+contrasts(one.way$group.2)
+```
+
+```
+##         control tx1
+## tx2           0   0
+## control       1   0
+## tx1           0   1
+```
+
+---
+## Contrasts
+.tiny[
+
+```r
+## dummy variables via:
+contr.treatment(4)
+```
+
+```
+##   2 3 4
+## 1 0 0 0
+## 2 1 0 0
+## 3 0 1 0
+## 4 0 0 1
+```
+
+```r
+## effect coding via: 
+contr.sum(4)
+```
+
+```
+##   [,1] [,2] [,3]
+## 1    1    0    0
+## 2    0    1    0
+## 3    0    0    1
+## 4   -1   -1   -1
+```
+]
+
+---
+## Asign contrast to factor variable
+.tiny[
+
+```r
+contr.sum(3)
+```
+
+```
+##   [,1] [,2]
+## 1    1    0
+## 2    0    1
+## 3   -1   -1
+```
+
+```r
+contrasts(one.way$group) &lt;- contr.sum(3)
+model.3 &lt;- lm(drugs ~ group, data = one.way ) 
+tidy(model.3)
+```
+
+```
+## # A tibble: 3 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)   0.0693    0.0432      1.60 0.110   
+## 2 group1        0.252     0.0674      3.74 0.000228
+## 3 group2       -0.172     0.0518     -3.31 0.00105
+```
+]
+---
+## effects (sum) coding
+- note: intercept is the means of means
+
+```r
+library(psych)
+describe(one.way$drugs)
+```
+
+```
+##    vars   n  mean   sd median trimmed mad   min  max range skew kurtosis   se
+## X1    1 250 -0.01 0.62  -0.16   -0.15   0 -0.18 4.38  4.56 5.11    26.82 0.04
+```
+
+```r
+table(one.way$group)
+```
+
+```
+## 
+## control     tx1     tx2 
+##      45     150      58
+```
+- you may want to do "weighted" effect coding
+
+--- 
+
+```r
+anova(model.3)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: drugs
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## group       2  6.207 3.10337  8.5826 0.0002491 ***
+## Residuals 247 89.312 0.36159                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+ - What does the ANOVA table look like for model.1 and model.2? 
+ - note the df for SSregression/SSbetween
+ 
+---
+## what happens if you want a different reference group? 
+- in addition to relevel (and fct_relevel in forcats) you can change the contrast matrix
+.small[
+
+```r
+contrasts(one.way$group) &lt;- contr.treatment(3, base = 2)
+model.4 &lt;- lm(drugs ~ group, data = one.way ) 
+tidy(model.4)
+```
+
+```
+## # A tibble: 3 x 5
+##   term        estimate std.error statistic   p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)  -0.102     0.0494    -2.07  0.0393   
+## 2 group1        0.424     0.102      4.14  0.0000473
+## 3 group3        0.0911    0.0937     0.972 0.332
+```
+]
+---
+
+
+```r
+contrasts(one.way$group) &lt;- contr.treatment(3, base = 3)
+model.5 &lt;- lm(drugs ~ group, data = one.way ) 
+tidy(model.5)
+```
+
+```
+## # A tibble: 3 x 5
+##   term        estimate std.error statistic p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)  -0.0113    0.0796    -0.142 0.887  
+## 2 group1        0.333     0.120      2.78  0.00592
+## 3 group2       -0.0911    0.0937    -0.972 0.332
+```
+
+---
+## What happens if you have both nominal and continuous variables in the same model? 
+
+
+```r
+model.6 &lt;- lm(drugs ~ group + alcohol, data = one.way ) 
+tidy(model.6)
+```
+
+```
+## # A tibble: 4 x 5
+##   term        estimate std.error statistic    p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1 (Intercept)  0.00177    0.0762    0.0232 0.982     
+## 2 group1       0.245      0.116     2.11   0.0356    
+## 3 group2      -0.0892     0.0896   -0.995  0.321     
+## 4 alcohol      0.206      0.0419    4.91   0.00000164
+```
+
+---
+## How should you code variables to begin with?
+
+- Easy enough to work with factor variables that have their level as their name
+- No need to manually change (or create) a number associated with a level and use as.numeric
+- For simple dichotomous variables, sometimes people do code 0/1 rather than tx/control for example
+- Information could be lost without a code book, so best to name the variable what is coded 1 (e.g., tx or female rather than group or gender)
+
+---
+## Multicollinearity
+
+---
+## Supression
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

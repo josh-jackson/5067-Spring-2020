@@ -17,3 +17,7 @@ pdf version: https://learningstatisticswithr.com/lsr-0.6.pdf
 # Individual papers and chapters
 
 [Correlations](/Readings/Correlations.pdf)
+
+[Multiple Regression Cohen Chapter](/Readings/Cohen-MR.pdf)
+
+[Dawtry et al 2015 Psych Science for HW#2](/Readings/Dawtry2015-PS.pdf)

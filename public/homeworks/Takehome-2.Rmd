@@ -1,0 +1,46 @@
+---
+title: "Takehome-2 Regression"
+output: html_document
+---
+
+## Due 2/17
+
+## Please answer the questions below. Show all your code and results. You will need to use the Dawtry et al., 2015 Psychological Science article and the accompanying dataset to answer questions 1 - 7. Dawtry is on the readings page. And the dataset can be found on my github. 
+
+## Turn in your assignments via email to: Homewor.n8vuiecd13uzdxps@u.box.com by attaching the rmd and pdf to the email.
+
+
+
+1. Using data from Dawtry et al. Study 1a, calculate cronbachs reliability for redistribution attitudes. (Note, some items may need to be reverse scored).  
+
+2. Replicate the correlation matrix in Table 1. (Note: you will have to create a composite to do so)   
+
+3. Calculate the means and standard deviations for Table 1 variables. 
+
+4. Graph the distributions of Household Income, Fairness and Satisfaction, Social circle mean income, population mean income, and political preference. Comment on anything you find irregular or interesting.  
+5. Run a regression where political preferences predit redistribution. Interpret the intercept, the regression coefficient and R2. Then plot to regression including the raw values, a confidence band, and the regression line.  
+
+6. Dichotomize the political preferences data into a dichotomous conservative and democrat variable, assuming the midpoint is conservative. Then run a linear model with dummy coding predicting redistribution. What are the conceptual differences between the regression in #5 and #6. Which one would you prefer?  
+
+7. Using the anova function for the model output for the model computed in #5, calculate R squared "by hand" using numbers in the anova table.  
+
+8. For the same model, interpret the residual standard error. 
+
+9. Plot a distribution of the residuals for the model computed in #5. Then comment on the relationship between residual standard error (sigma) and the SD of this distribution.    
+
+10. Run a standardized regression with household income predicting redistribution. What is the relationship to your summary output and the correlation in Table 1? 
+
+*You do not need to use any data to answer questions 11 & 12 *
+
+11. You are given data with two variables, X and Y. The mean of X is 3 with a SD .75. Y has a mean of 4 with a SD of .50. The correlation between the two is r = .3. "By hand", calculate the regression equation. Interpret each term in equation. 
+
+12. With the data from #11, calculate the standardized regression equation. Interpet each term. 
+
+
+
+
+
+
+
+
+
