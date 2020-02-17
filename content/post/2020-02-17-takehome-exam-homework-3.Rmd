@@ -1,0 +1,23 @@
+---
+title: 'HW #3'
+author: ''
+date: '2020-02-17'
+slug: takehome-exam-homework-3
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-17T15:53:30-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+Takehome #3 is posted! Due 3/2. 
+
+Use questions 1-6 to help prepare for the first exam
