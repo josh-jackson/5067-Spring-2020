@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Assumptions</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Josh Jackson" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 4em 1em 4em;
+}
+
+.small .remark-code { 
+  font-size: 80% !important;
+}
+.tiny .remark-code {
+  font-size: 65% !important;
+}
+&lt;/style&gt;
+
+## This time/last time
+Finished up multiple regression basics.
+
+This time we will talk about the assumptions lurking in the background.
+
+---
+## We want to be BLUE
+- Best linear unbiased estimate of beta  
+&lt;br&gt; 
+Properties: Unbiased, Efficient (se minimum), Consistent (N decreases se)
+
+---
+
+## 6 assumptions
+1. No measurement error
+2. Correctly specified form
+3. No omitted variables
+4. Homoscedasticity 
+5. Independence among the residuals
+6. Normally distributed residuals
+
+---
+## What happens if we violate assumptions?
+1. Biased regression coefficients
+2. Biased standard errors
+
+---
+## 6 assumptions
+
+|Violated Regression Assumption |	Coefficients |	Standard Errors|
+|-------------------------------|--------------|-----------------|
+|1. Measured without error     	|	 Biased 		 |	  Biased       |
+|2. Correctly specified form 		|	 Biased 		 |	  Biased       |
+|3. Correctly specified model		|	 Biased			 |	  Biased       | 
+|4. Homoscedasticity 						|				       |    Biased       |
+|5. Independent Errors 				 	|				       |    Biased       |
+|6. Normality of the Errors 		|							 |    Biased       |
+
+---
+## How do we detect violations? 
+|       Assumption              |       	detect                    |
+|-------------------------------|--------------------------------|
+|1. Measured without error	    |	  Reliability                  |
+|2. Correctly specified form 		|	  Residuals against predicted  |
+|3. Correctly specified model		|	  Theory, endogeneity test     | 
+|4. Homoscedasticity 						|		Residuals against predicted  |
+|5. Independent Errors 				 	|		Design                       |
+|6. Normality of the Errors     |   q-q plot or distribution     |
+
+---
+
+```r
+library(readr)
+a_data &lt;- read.csv("diagnostics.csv")
+library(broom)
+model.1 &lt;- lm(Anxiety ~ Stress + Support, a_data)
+a_data&lt;- augment(model.1)
+a_data
+```
+
+```
+## # A tibble: 118 x 10
+##    Anxiety Stress Support .fitted .se.fit  .resid    .hat .sigma .cooksd
+##      &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1   10.2    3.20    6.16    8.15   0.270  2.03   0.0186    1.98 6.80e-3
+##  2    5.59   7.01    8.91    8.31   0.273 -2.73   0.0191    1.97 1.25e-2
+##  3    6.58   6.17   10.5     7.06   0.215 -0.474  0.0118    1.99 2.30e-4
+##  4    8.95   8.70   11.5     7.66   0.390  1.30   0.0388    1.99 5.99e-3
+##  5    7.60   5.27    5.55    9.38   0.281 -1.79   0.0201    1.98 5.68e-3
+##  6    8.16   5.12    7.51    8.25   0.198 -0.0983 0.00998   1.99 8.36e-6
+##  7    9.08   6.85    8.56    8.44   0.269  0.642  0.0185    1.99 6.72e-4
+##  8    3.41   1.77    4.1     8.65   0.392 -5.24   0.0392    1.93 9.90e-2
+##  9    8.66   3.75    5.39    8.81   0.265 -0.154  0.0180    1.99 3.77e-5
+## 10    4.85   5.45   13.9     4.91   0.373 -0.0597 0.0354    1.99 1.15e-5
+## # … with 108 more rows, and 1 more variable: .std.resid &lt;dbl&gt;
+```
+
+---
+## Residuals are very important 
+They tell us where our model went wrong
+![](Diagnostics-6_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+---
+## With two predictors
+Why does it look this way? 
+![](Diagnostics-6_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+
+---
+## Assumption 1: No measurement error in our independent variables
+
+
+---
+## Assumption 2: Correctly specified form
+
+![](Diagnostics-6_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+
+---
+## Assumption 3: Correctly specified model
+- This is especially important for multiple regression. 
+- Two problems: 
+  1. "Over control" and your coefficient is no longer interpretable
+  2. "Under control" and your coefficient is no longer interpretable
+
+---
+## Endogeneity 
+- Where your error term is associated with a predictor. 
+- Typically when you leave out an important predictor.  
+
+If this is the true model: 
+`$${Y_i} = b_{0} + b_{1}X_{1} + b_{2}X_{2} + \epsilon_i$$`
+But you only model 
+`$${Y_i} = b_{0} + b_{1}X_{1} + \epsilon_i$$`
+The extra term is absorbed into the error so that
+$${Y_i} = b_{0} + b_{1}X_{1} + (\epsilon_i +X_{2}) $$
+If if `\(X_{1}\)` and `\(X_{2}\)` are correlated and `\(b_{2}\)` is associated with `\({Y_i}\)` then the residual and predictor in this model will be correlated   
+
+`$${Y_i} = b_{0} + b_{1}X_{1} + \epsilon_i$$`
+
+---
+## Endogeneity
+- Can also occur if you "condition on a collider". Many ways this can happen but one common one is selecting a sample (clinical students, college students) that is associated with your variables of interest (e.g., emotion regulation, memory ability)
+
+- For example, there is a percived negative association between methodological rigour and innovatevness in published articles. Is there actually a causal negative correlation? No, it is becasue both are associated with getting published. Controlling for one another introduces the incorrect negative association. 
+
+- See Rohrer 2018 
+
+
+
+
+---
+## Assumption 4: Homoscedasticity
+
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+![](Diagnostics-6_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+
+---
+## Assumption 5: Independence among the errors
+
+![](Diagnostics-6_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+---
+## Assumption 6: Normality of the errors
+![](Diagnostics-6_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+
+---
+##
+![](Diagnostics-6_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+---
+## car package also works 
+
+```r
+library(car)
+```
+
+```
+## Loading required package: carData
+```
+
+```
+## 
+## Attaching package: 'car'
+```
+
+```
+## The following object is masked from 'package:dplyr':
+## 
+##     recode
+```
+
+```
+## The following object is masked from 'package:purrr':
+## 
+##     some
+```
+
+```r
+qqPlot(model.1)
+```
+
+![](Diagnostics-6_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+
+```
+## [1]  8 84
+```
+
+```r
+#base plot function too
+#plot(model.1, which = 2)
+```
+
+
+---
+## How do we fix violations? 
+
+|       Assumption              |       	Fix                      |
+|-------------------------------|----------------------------------|
+|1. Measured without error	    |	SEM, factor scores, more data, better design    |
+|2. Correctly specified form 		|	Different model                  |
+|3. Correctly specified model		|	 ¯\_(ツ)_/¯  &amp; specificity analyses|
+|4. Homoscedasticity 						|	Bootstraps, WLS, transformations  |
+|5. Independent Errors 				 	| Use differ analysis method                |
+|6. Normality of the Errors     | Additional IVs, differnt form    |
+---
+## Robustness? 
+
+- yeah, mostly
+- especially with normally of errors
+- note: we do not need to have normally distributed IVs or DVs
+
+---
+## Data screeing
+
+- Start with descriptive stats and plots   
+- Look for outliers, missing cases, etc.  
+- Test assumptions (residual plots)  
+
+---
+## why screen your data? 
+
+---
+## Outliers
+- Broadly defined as atypical or highly influential data point(s) 
+- Due to contamination (e.g. recording error) or accurate observation of a rare case 
+- Univariate vs. Multivariate 
+
+---
+## Outliers
+
+1. Leverage   
+    + How unusual is this case from the rest of the cases in terms of predictors?  
+2. Distance   
+    + How distant is the observed case from the predicted value?   
+3. Influence   
+    + How much the does regression coefficient change if case were removed? 
+  
+---
+## Leverage
+
+- Tells us how far observed values for a case are from mean values on the set of IVs (centroid)   
+- Not dependent on Y values  
+- High leverage cases have greater potential to influence regression results  
+- Mahalanobis Distance for multivariate stats 
+
+---
+## Distance
+
+- Distance From Prediction- how far is observed value from predicted value (i.e. residuals)   
+
+- deleted residuals takes into consideration what would happen if case were deleted 
+
+
+---
+## Influence
+- How regression equation would change if extreme case were removed 
+- Influence = Leverage X Distance 
+- DFFITS (difference in fit standardized)
+- Cooks D (same but different metric to DFFITS)
+- DFBETAS (coefficient change without outlier)
+
+
+---
+## cooks d
+![](Diagnostics-6_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+---
+## df beta
+![](Diagnostics-6_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+---
+## recommendations
+- Analyze data with/without outliers and see how results change   
+- If you throw out cases you must believe it is not representative of population of interest or have appropriate explanation 
+- Don't throw out data just to be "safe". Data are hard to collect and outliers are expected!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

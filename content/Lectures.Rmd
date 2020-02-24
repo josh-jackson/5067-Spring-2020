@@ -5,10 +5,13 @@ date: "1/8/2020"
 output: html_document
 ---
 
-## Multiple Regression Week 4 & 5
+## Multiple Regression Week 7
+[Assumptions and Diagnostics Slides](/Lectures/Diagnostics-6.html)
+
+## Multiple Regression Week 5 & 6
 [Multiple Regression Slides](/Lectures/multregression-5.html)
 
-## Regression Week 3
+## Regression Week 3-4
 [Regression Slides](/Lectures/regression-4.html)
 
 ## Correlations Week 2
