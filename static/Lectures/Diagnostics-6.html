@@ -133,37 +133,34 @@ Why does it look this way?
 
 ---
 ## Endogeneity 
-- Where your error term is associated with a predictor. 
-- Typically when you leave out an important predictor.  
+.pull-left[
+- Where your error term is associated with a predictor 
+- Typically due to leaving out an important predictor
 
 If this is the true model: 
 `$${Y_i} = b_{0} + b_{1}X_{1} + b_{2}X_{2} + \epsilon_i$$`
 But you only model 
 `$${Y_i} = b_{0} + b_{1}X_{1} + \epsilon_i$$`
+]
+
+.pull-right[
 The extra term is absorbed into the error so that
-$${Y_i} = b_{0} + b_{1}X_{1} + (\epsilon_i +X_{2}) $$
-If if `\(X_{1}\)` and `\(X_{2}\)` are correlated and `\(b_{2}\)` is associated with `\({Y_i}\)` then the residual and predictor in this model will be correlated   
+`$${Y_i} = b_{0} + b_{1}X_{1} + (\epsilon_i +X_{2})$$`
+If `\(X_{1}\)` and `\(X_{2}\)` are correlated and `\(X_{2}\)` is associated with `\({Y_i}\)` above and beyond `\(X_{1}\)` then the residual and predictor in this model will be correlated   
 
 `$${Y_i} = b_{0} + b_{1}X_{1} + \epsilon_i$$`
-
+]
 ---
 ## Endogeneity
-- Can also occur if you "condition on a collider". Many ways this can happen but one common one is selecting a sample (clinical students, college students) that is associated with your variables of interest (e.g., emotion regulation, memory ability)
+- Can also occur if you "condition on a collider". Many ways this can happen but one common one is selecting a sample (clinical students, college students) that are associated with your variables of interest (e.g., emotion regulation, memory ability)
 
-- For example, there is a percived negative association between methodological rigour and innovatevness in published articles. Is there actually a causal negative correlation? No, it is becasue both are associated with getting published. Controlling for one another introduces the incorrect negative association. 
+- For example, there is a perceived negative association between methodological rigor and innovativeness in published articles. Is there actually a causal negative correlation? No, it is because both are associated with getting published. Controlling for one another introduces the incorrect negative association. 
 
 - See Rohrer 2018 
 
 
-
-
 ---
 ## Assumption 4: Homoscedasticity
-
-
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-```
 
 ![](Diagnostics-6_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 
@@ -179,7 +176,6 @@ If if `\(X_{1}\)` and `\(X_{2}\)` are correlated and `\(b_{2}\)` is associated w
 
 
 ---
-##
 ![](Diagnostics-6_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
 
 ---
@@ -233,10 +229,10 @@ qqPlot(model.1)
 |-------------------------------|----------------------------------|
 |1. Measured without error	    |	SEM, factor scores, more data, better design    |
 |2. Correctly specified form 		|	Different model                  |
-|3. Correctly specified model		|	 ¯\_(ツ)_/¯  &amp; specificity analyses|
+|3. Correctly specified model		|	 ¯\\__(ツ)_/¯  &amp; specificity analyses|
 |4. Homoscedasticity 						|	Bootstraps, WLS, transformations  |
 |5. Independent Errors 				 	| Use differ analysis method                |
-|6. Normality of the Errors     | Additional IVs, differnt form    |
+|6. Normality of the Errors     | Additional IVs, different form    |
 ---
 ## Robustness? 
 
@@ -245,14 +241,14 @@ qqPlot(model.1)
 - note: we do not need to have normally distributed IVs or DVs
 
 ---
-## Data screeing
+## Data screening
 
 - Start with descriptive stats and plots   
 - Look for outliers, missing cases, etc.  
 - Test assumptions (residual plots)  
 
 ---
-## why screen your data? 
+## Why screen your data? 
 
 ---
 ## Outliers
@@ -304,7 +300,7 @@ qqPlot(model.1)
 ![](Diagnostics-6_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 
 ---
-## recommendations
+## Recommendations
 - Analyze data with/without outliers and see how results change   
 - If you throw out cases you must believe it is not representative of population of interest or have appropriate explanation 
 - Don't throw out data just to be "safe". Data are hard to collect and outliers are expected!
