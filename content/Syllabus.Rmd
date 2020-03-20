@@ -55,6 +55,9 @@ Due dates for exams and other project details will be listed on the announcement
 
 Note: take home homeworks should be treated like exams. No discussing of questions or sharing code. Any duplicate code will result in zero points for that section. In the past this has frustrated people. However, the necessary code is 1. mostly available in the lectures and 2. able to be found online with some simple searches. The struggle of not having your code immediately work is real and is experienced by everyone. This is normal and thus should be expected. Thus, please give yourself ample time to work on these takehome projects. Getting practice to search for and deal with code problems is a useful skill set to develop. If you are hitting your head against a wall for hours please ask Brent, Shelly or I for advice.   
 
+
+*Grading Update* The class NOW consists of 1 in class test,  7 take home exams ie homeworks, and one oral "exam". The 1 in class exams make up 20% of your grade, as before. The 7 take home projects fulfills 70% of your final grade (10% each) while the final oral exam will make up the remaining 10%. 
+
 **Grades**:   
 100%   - A+  
 99-92 - A  
@@ -86,24 +89,24 @@ Note that dates and readings are tentative. Topics will likely shift; all change
 | -    | 2/13  | Multiple Regression         |                  |                      |
 | 6    | 2/18  | Multiple Regression                 |                    |                      |
 | -    | 2/20  | **Exam 1**          |                    |                      |
-| 7    | 2/25  | Assumptions, model diagnostics                  |                    |        |
-| -    | 2/27  | Assumptions, model diagnostics          |               |                      |
-| 8    | 3/3   | Moderation/interaction          |                    |  Aiken  Chapter                     |
-| -    | 3/5   | Moderation/interaction           |                     | Aiken  Chapter        |
-| 9    | 3/10  | **Spring Break!**                |                      |                      |
-| -    | 3/12  | **Spring Break!**                 |                     |                      |
-| 10   | 3/17  | Polynomials                     |                   |          |
-| -    | 3/19  | Factorial ANOVA                 |    Chapter 16                  |     |
-| 11   | 3/24  | Factorial ANOVA     |            |        Myers chapter         |
-| -    | 3/26  | Cont and cat predictors (ANCOVA)              |                     |       |
-| 12   | 3/31  | Logistic regression/GLM     |        |   Cohen Logistic Chapter        |
-| -    | 4/2   | Over/underfitting and validation    |            |  Yarkoni Westfall paper  | 
-| 13   | 4/7   | Repeated measures/MLM              |           | Hoffman BRM   |
-| -    | 4/9   | Repeated measures/MLM        |                |                      |
-| 14   | 4/14  | Repeated measures/MLM                                  |                      |
-| -    | 4/16  | **Exam 2**                 |             |          |
-| 15   | 4/21  | Bayesian statistics     |  Chapter 17      | Kruschke PBR                     |
-| -    | 4/23  | Bayesian regression             |                      |                      |
-| -    | 5/5   | **Final Exam**       |        TIME TBA              |                      |
+| 7    | 2/25  | Heirarchical/multiple models           |                    |        |
+| -    | 2/27  | 3 or more groups/levels     |               |               |
+| 8    | 3/3   | Assumptions, model diagnostics          |             |    |
+| -    | 3/5   | Assumptions, model diagnostics            |             |   |
+| 9    | 3/10  | **Spring Break!**                |                      |            |
+| -    | 3/12  | **Spring Break!**                 |                     |              |
+| 10   | 3/17  |**Spring Break part Deux**               |         |          |
+| -    | 3/19  |**Spring Break part Deux**                 |       |     |
+| 11   | 3/24  | Moderation/interaction & Polynomials  |   |  Aiken Chapter  |
+| -    | 3/26  | Moderation/interaction & Polynomials  |           |    | 
+| 12   | 3/31  |  Factorial ANOVA    |    Chapter 16    |  Myers chapter   |
+| -    | 4/2   |  Factorial ANOVA  |        |   | 
+| 13   | 4/7   | Cont and cat predictors (ANCOVA)     | | Myers chapter   | 
+| -    | 4/9   |Logistic regression/GLM  |      |  Cohen Logistic Chapter     |
+| 14   | 4/14  | Over/underfitting and validation        |       |Yarkoni Westfall paper|
+| -    | 4/16  | Repeated measures/MLM    |        |    Hoffman BRM paper       |
+| 15   | 4/21  | Repeated measures/MLM     |      |              |
+| -    | 4/23  | Bayesian regression      |    Chapter 17      |    Kruschke paper                |
+
 
 

@@ -5,12 +5,24 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>5067 Quantitative Methods II</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 17 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 20 Mar 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>5067 Quantitative Methods II</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Corona induced changes</title>
+      <link>/post/updates/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/updates/</guid>
+      <description>
+
+
+&lt;p&gt;Lectures will now be online. Look for zoom link in your mail. Schedule is updated on the syllabus. Email Josh if you have any questions.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>HW #3</title>
@@ -187,6 +199,7 @@
 &lt;p&gt;Typically, grades are “curved,” but not to a predefined distribution. The curve will always be in a manner that will help people, not hurt.&lt;/p&gt;
 &lt;p&gt;Due dates for exams and other project details will be listed on the announcements/home page. Expect exact dates to change throughout the semester so be sure to check the site frequently.&lt;/p&gt;
 &lt;p&gt;Note: take home homeworks should be treated like exams. No discussing of questions or sharing code. Any duplicate code will result in zero points for that section. In the past this has frustrated people. However, the necessary code is 1. mostly available in the lectures and 2. able to be found online with some simple searches. The struggle of not having your code immediately work is real and is experienced by everyone. This is normal and thus should be expected. Thus, please give yourself ample time to work on these takehome projects. Getting practice to search for and deal with code problems is a useful skill set to develop. If you are hitting your head against a wall for hours please ask Brent, Shelly or I for advice.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Grading Update&lt;/em&gt; The class NOW consists of 1 in class test, 7 take home exams ie homeworks, and one oral “exam”. The 1 in class exams make up 20% of your grade, as before. The 7 take home projects fulfills 70% of your final grade (10% each) while the final oral exam will make up the remaining 10%.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Grades&lt;/strong&gt;:&lt;br /&gt;
 100% - A+&lt;br /&gt;
 99-92 - A&lt;br /&gt;
@@ -300,30 +313,30 @@
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;7&lt;/td&gt;
 &lt;td&gt;2/25&lt;/td&gt;
-&lt;td&gt;Assumptions, model diagnostics&lt;/td&gt;
+&lt;td&gt;Heirarchical/multiple models&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;2/27&lt;/td&gt;
-&lt;td&gt;Assumptions, model diagnostics&lt;/td&gt;
+&lt;td&gt;3 or more groups/levels&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;8&lt;/td&gt;
 &lt;td&gt;3/3&lt;/td&gt;
-&lt;td&gt;Moderation/interaction&lt;/td&gt;
+&lt;td&gt;Assumptions, model diagnostics&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Aiken Chapter&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;3/5&lt;/td&gt;
-&lt;td&gt;Moderation/interaction&lt;/td&gt;
+&lt;td&gt;Assumptions, model diagnostics&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Aiken Chapter&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;9&lt;/td&gt;
@@ -342,93 +355,86 @@
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;10&lt;/td&gt;
 &lt;td&gt;3/17&lt;/td&gt;
-&lt;td&gt;Polynomials&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Spring Break part Deux&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;3/19&lt;/td&gt;
-&lt;td&gt;Factorial ANOVA&lt;/td&gt;
-&lt;td&gt;Chapter 16&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Spring Break part Deux&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;11&lt;/td&gt;
 &lt;td&gt;3/24&lt;/td&gt;
-&lt;td&gt;Factorial ANOVA&lt;/td&gt;
+&lt;td&gt;Moderation/interaction &amp;amp; Polynomials&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Myers chapter&lt;/td&gt;
+&lt;td&gt;Aiken Chapter&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;3/26&lt;/td&gt;
-&lt;td&gt;Cont and cat predictors (ANCOVA)&lt;/td&gt;
+&lt;td&gt;Moderation/interaction &amp;amp; Polynomials&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;12&lt;/td&gt;
 &lt;td&gt;3/31&lt;/td&gt;
-&lt;td&gt;Logistic regression/GLM&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Cohen Logistic Chapter&lt;/td&gt;
+&lt;td&gt;Factorial ANOVA&lt;/td&gt;
+&lt;td&gt;Chapter 16&lt;/td&gt;
+&lt;td&gt;Myers chapter&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;4/2&lt;/td&gt;
-&lt;td&gt;Over/underfitting and validation&lt;/td&gt;
+&lt;td&gt;Factorial ANOVA&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Yarkoni Westfall paper&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;13&lt;/td&gt;
 &lt;td&gt;4/7&lt;/td&gt;
-&lt;td&gt;Repeated measures/MLM&lt;/td&gt;
+&lt;td&gt;Cont and cat predictors (ANCOVA)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Hoffman BRM&lt;/td&gt;
+&lt;td&gt;Myers chapter&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;4/9&lt;/td&gt;
-&lt;td&gt;Repeated measures/MLM&lt;/td&gt;
+&lt;td&gt;Logistic regression/GLM&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Cohen Logistic Chapter&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;14&lt;/td&gt;
 &lt;td&gt;4/14&lt;/td&gt;
-&lt;td&gt;Repeated measures/MLM&lt;/td&gt;
+&lt;td&gt;Over/underfitting and validation&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Yarkoni Westfall paper&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;4/16&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;Exam 2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Repeated measures/MLM&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Hoffman BRM paper&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;15&lt;/td&gt;
 &lt;td&gt;4/21&lt;/td&gt;
-&lt;td&gt;Bayesian statistics&lt;/td&gt;
-&lt;td&gt;Chapter 17&lt;/td&gt;
-&lt;td&gt;Kruschke PBR&lt;/td&gt;
+&lt;td&gt;Repeated measures/MLM&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;4/23&lt;/td&gt;
 &lt;td&gt;Bayesian regression&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;5/5&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;Final Exam&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;TIME TBA&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Chapter 17&lt;/td&gt;
+&lt;td&gt;Kruschke paper&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
