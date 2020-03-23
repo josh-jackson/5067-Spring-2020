@@ -87,7 +87,6 @@ Using real data this is an interaction between support and anxiety predicting st
 ---
 ## How can we visualize this association?  
 
-- 2d?
 ```{r, echo = FALSE}
 Multipleregression$Anxiety.c <- scale(Multipleregression$Anxiety, center = TRUE, scale = FALSE)
 Multipleregression$Support.c <- scale(Multipleregression$Support.r, center = TRUE, scale = FALSE)
@@ -122,12 +121,15 @@ $$\hat{Y} = b_{0} + b_{1}X + b_{2}Z + b_{3}XZ$$
 <br>
 - higher order/interaction terms are created through multiplication
 ---
-## moderator variables
+## Moderator variables
 
 $$\hat{Y} = b_{0} + b_{1}X + b_{2}Z + b_{3}XZ$$
-$\hat{Y} = b_{0} + b_{1}X$ at different levels of Z  
-<br>
-$\hat{Y} = b_{0} + b_{1}Z$ at different levels of X
+
+.pull-left[
+$$\hat{Y} = b_{0} + b_{1}X$$  at different levels of Z  
+
+
+$$\hat{Y} = b_{0} + b_{1}Z$$  at different levels of X]
 
 ---
 ```{r, echo = FALSE}

@@ -17,4 +17,6 @@ image:
 projects: []
 ---
 
-Lectures will now be online. Look for zoom link in your mail. Schedule is updated on the syllabus. Email Josh if you have any questions. 
+Lectures will now be online via zoom: https://wustl.zoom.us/j/191614696
+
+Schedule is updated on the syllabus. Email Josh if you have any questions. 
