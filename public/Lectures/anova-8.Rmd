@@ -1,0 +1,532 @@
+---
+title: "Factorial ANOVA"
+author: Josh Jackson
+date: "4-1-20"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: xaringan-themer.css
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: "16:9"
+---
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+mono_light(
+  base_color = "#23395b",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Droid Mono"),
+)
+
+library(tidyverse)
+library(broom)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 4em 1em 4em;
+}
+
+.small .remark-code { 
+  font-size: 80% !important;
+}
+.tiny .remark-code {
+  font-size: 65% !important;
+}
+</style>
+
+
+## factorial ANOVA
+
+|      |       |Factor| A          | Marginal Means       |
+|------|-------|------|------------|----------------------|
+|      |       | Tx   |  Control   |                      |
+| B    |neutral|  7.6 |     5.0    |  6.33                |
+|      | sad   |  8.3 |     5.0    |  6.66                |
+|      | happy |  7.3 |     8.0    |  7.66                |
+|______|_______|______|____________|______________________|
+| M.M  |       | 7.77 |   6.0      | 6.88                 | 
+
+
+---
+
+## between subjects factorial ANOVA
+- Between subjects (vs within) is where everyone is assigned to 1 group
+- 2-way = 2 IVs, 3-way = 3 IVs, etc
+- Advantages include: 1) efficiency 2) generalizability 3) interactions
+
+
+---
+## A note on terminology
+
+- This is just regression with multiple nominal IVs
+- Discussed as a different from regression because of historical reasons
+
+---
+## SS decomposition
+- SStotal = SSbetween + SSwithin  
+- SSbetween into three (or more) components (A,B,AxB)  
+
+- Exactly like we have been doing in regression land
+---
+## Marginal vs cell means
+|      |       |Factor| A          | Marginal Means       |
+|------|-------|------|------------|----------------------|
+|      |       | Tx   |  Control   |                      |
+| B    |neutral|  7.6 |     5.0    |  6.33                |
+|      | sad   |  8.3 |     5.0    |  6.66                |
+|      | happy |  7.3 |     8.0    |  7.66                |
+|______|_______|______|____________|______________________|
+| M.M  |       | 7.77 |   6.0      | 6.88                 | 
+- marginal for main effects  
+- cell means for interaction  
+
+---
+
+## what do interactions with nominal data look like? 
+- and can I "see" main effects too? 
+
+---
+## conceptual equation
+- seen in many textbooks
+- similar to effect coding interpretation - but not! 
+- it is not an analytic equation
+
+$$Y_{ijk} = \mu + \alpha_{j} + \beta_{k} + \alpha \beta_{jk}+\varepsilon_{ijk}$$
+
+$$\alpha_{j} =  \mu_{j} -  \mu$$
+
+
+---
+## interactions 
+- main effects are on the marginal means  
+- interactions are about the cell means  
+- what is not expected based on the main effects (marginal means)
+- similar to contingency table tests of independence from last semester
+
+---
+## Interpreting interactions part 1
+- An interaction is present when the simple effects (akin to simple main effect - more below) of one independent variable are not the same at all levels of the second independent variable. 
+- If there in an interaction, main effects are hard to interpret, much more so than with continuous interactions 
+
+---
+## how is this similar to a linear model?
+
+$$Y_{ijk} = \mu + \alpha_{j} + \beta_{k} + \alpha \beta_{jk}+\varepsilon_{ijk}$$
+
+
+
+$$Y_{ijk} = b_{0} + b_{1}J + b_{2}K + b_{3}JK + \varepsilon_{ijk}$$
+---
+## Effect coding a factorial ANOVA
+- j-1 and k-1 variables for main effects  
+- (j-1)(k-1) variables for interaction  
+<br>
+$J_{ij}$ = 1 if in column j, -1 if in last column, 0 for all other columns  
+$K_{ik}$ = 1 if in row k, -1 if in last row, 0 for all other rows  
+$JK_{i}$ = pairwise product of each J with K variable  
+
+---
+## linear model equation
+
+$$Y_{ijk} = b_{0} + b_{1}J1 + b_{2}K1 + b_{3}K2 + b_{4}J1K1 + b_{5}J1K2 +\varepsilon_{ijk}$$
+
+
+|      |       |Factor| A          | Marginal Means       |
+|------|-------|------|------------|----------------------|
+|      |       | Tx   |  Control   |                      |
+| B    |neutral|  7.6 |     5.0    |  6.33                |
+|      | sad   |  8.3 |     5.0    |  6.66                |
+|      | happy |  7.3 |     8.0    |  7.66                |
+|______|_______|______|____________|______________________|
+| M.M  |       | 7.77 |   6.0      | 6.88                 | 
+
+---
+## coding
+
+| row  |column |  J1  | K1  |  K2 | J1K1 | J1K2  |
+|------|-------|------|-----|-----|------|-------|
+| 1    |  1    |  1   |  1  |  0  |  1   |   0   |
+| 1    |  2    | -1   |  1  |  0  | -1   |   0   |
+| 2    |  1    |  1   |  0  |  1  |  0   |   1   |
+| 2    |  2    | -1   |  0  |  1  |  0   |  -1   |
+| 3    |  1    |  1   | -1  | -1  | -1   |  -1   |
+| 3    |  2    | -1   | -1  | -1  |  1   |   1   | 
+
+---
+## but where is this in our output if ANOVA is regression? 
+
+```{r, echo=FALSE, message=FALSE}
+data <- read.csv("Anxiety.data.csv")
+
+library(dplyr)
+# getting the group means 
+Group_means<- data %>% group_by(group) %>% 
+  summarise(meanAnxiety = mean(Anxiety), varStress = sd(Stress)^2,
+            meanStress = mean(Stress), meanSupport=mean(Support))
+# Calculating the grand mean by averaging the two group means together
+Anxiety_grandmean <- mean(Group_means$meanAnxiety)
+data$SupportLevel<-cut(data$Support, breaks = c(0,5,10,18), labels = c("low","med","high"))
+
+data <- data %>% 
+  dplyr::select(-Support) 
+```
+
+```{r}
+data
+```
+
+---
+
+## aov function
+```{r}
+aov.1 <- aov(Anxiety ~ group + SupportLevel + group*SupportLevel, data=data)
+summary(aov.1)
+```
+
+---
+## lm anova
+
+```{r}
+lm.1 <- lm(Anxiety ~ group + SupportLevel + group*SupportLevel, data=data)
+anova(lm.1)
+```
+---
+## lm summary 
+```{r, echo=FALSE}
+library(broom)
+tidy(lm.1)
+```
+
+$$Y_{ijk} = b_{0} + b_{1}J1 + b_{2}K1 + b_{3}K2 + b_{4}J1K1 + b_{5}J1K2 +\varepsilon_{ijk}$$
+---
+## But what contrasts did R use? 
+
+```{r}
+contrasts(data$group)
+contrasts(data$SupportLevel)
+```
+---
+- What if we did effect coding? 
+- (We will see why this doesn't matter later as we typically do not look at regression coefficients for factorial anovas)
+
+---
+```{r, echo = FALSE}
+
+data$group.effect <- data$group
+data$SupportLevel.effect <- data$SupportLevel
+
+contrasts(data$group.effect) <- contr.sum(2)
+contrasts(data$SupportLevel.effect) <- contr.sum(3)
+```
+
+```{r}
+contrasts(data$group.effect)
+contrasts(data$SupportLevel.effect)
+```
+
+---
+```{r}
+lm.1.effect <- lm(Anxiety ~ group.effect + SupportLevel.effect + group.effect*SupportLevel.effect, data=data)
+tidy(lm.1.effect)
+```
+
+---
+```{r}
+anova(lm.1.effect)
+```
+
+---
+```{r}
+anova(lm.1)
+```
+
+---
+## Interim summary
+- Our ANOVA is regression, the are both part of the linear model
+- Coding complex ANOVAs is difficult, let R do the work
+- We will discuss how to address more complex hypotheses later. Right now you are building the model. 
+- Coding the variables does not influence the SS decomposition. 
+
+
+-We will next use this model to ask further questions. 
+
+
+
+---
+## Initial step 
+Is the interaction significant? If it is, additional tests needed.  
+.small[
+```{r}
+aov.1 <- aov(Anxiety ~ group + SupportLevel + group*SupportLevel, data=data)
+aov.0 <- aov(Anxiety ~ group + SupportLevel, data=data)
+
+anova(aov.0, aov.1)
+```
+]
+
+---
+## Potential step 2
+
+If they are set up in the correct way we could look at regression coefficients to test  the hypothesized relationship
+
+$$Y_{ijk} = b_{0} + b_{1}J1 + b_{2}K1 + b_{3}K2 + b_{4}J1K1 + b_{5}J1K2 +\varepsilon_{ijk}$$
+- Remember, this is likely done with default dummy 
+- Typically not used as you are likely interested in more than just a few comparisons
+- Same is true even if we use effect coding
+
+## Typical step after creating a model
+
+Planned contrasts/Post hoc comparisons/simple main effects
+ 
+ - All of these fall under the rubric of 'contrasts'  
+ - The most basic of these is Tukey honestly significant difference
+ - Note: TukeyHSD function requires aov model not lm
+ 
+---
+.tiny[
+```{r}
+TukeyHSD(aov.1)
+```
+]
+---
+## post hoc tests
+- Mainly adjust error rates for multiple comparisons  
+
+- Planned contrasts, a priori: Holm, Dunn-Bonnferoni, perhaps Tukey
+- All pairwise comparisons (maybe a priori): Tukey
+- Post hoc fishing: Scheffe, perhaps Tukey if you can sleep at night
+
+---
+
+```{r, message = FALSE}
+# library(lsmeans) outdated, but code still works
+library(emmeans) 
+em.1<- emmeans(lm.1, c("group", "SupportLevel"))
+# can be used to test numerous a prior and post hoc hypotheses
+# can use both lm and aov models (and more!)
+# estimated means especially important for graphing
+# see more here: 
+#https://cran.r-project.org/web/packages/emmeans/vignettes/basics.html
+```
+---
+```{r}
+emmip(lm.1, group ~ SupportLevel)
+```
+
+---
+```{r}
+em.1
+```
+
+---
+```{r}
+emmeans(em.1, specs = "group")
+```
+
+
+---
+```{r}
+emmeans(lm.1, pairwise ~ group)
+```
+
+---
+.small[
+```{r}
+emmeans(lm.1, pairwise ~ SupportLevel)
+```
+]
+
+---
+## emmeans can also do tukey (and other adjustments)
+
+```{r}
+pairs(em.1, adjust = "tukey")
+# try "holm" and "bon"
+```
+
+---
+.small[
+```{r}
+# can use contrast function to get equivalent to pairs function 
+#contrast(em.1, method = "pairwise")
+#or look at effects rather than pairwise
+contrast(em.1, method = "eff")
+# note default adjustment is false discovery rate
+```
+]
+---
+
+## simple main effects
+```{r}
+joint_tests(aov.1, by = "SupportLevel")
+```
+
+---
+##more post hoc test options
+```{r, eval=FALSE}
+#library(multcomp)
+# multcomp::glht(aov.1)
+# Nice package that allows you to do many of the same functions as
+# emmeans but it has one major downside: MASS is loaded and 
+# thus masks dplyr::select
+```
+
+---
+```{r, message=FALSE}
+library(phia)
+testInteractions(lm.1, pairwise="SupportLevel")
+```
+
+---
+```{r}
+testInteractions(lm.1, pairwise="group")
+```
+
+---
+
+## different types of Sums of Squares
+- 3 types, 3 different hypotheses testing strategies   
+- Type 1, hierarchical (what R does)  
+- Type 3, simultaneous   
+- Type 2, looks at higher- versus lower-order  
+<br>  
+- SSwithin and SSinteraction will be same, regardless  
+- All about how we want to interpret main effects (which we often don't)
+
+---
+
+## Type 1: Hierarchical (what R does) 
+- Think of it as model comparisons. You always have to compare to something     
+A: anova(null, Factor A)  
+B: anova(Factor A, FactorA+B)  
+AB: anova(FactorA+B, FactorA+B+A*B)  
+- SS is just like our partial correlation calculation for R2 when adding terms to hierarchical regression  
+
+---
+
+## Type 3: Controls for all predictors
+
+A: anova(Factor B+A*B, FactorA+B+A*B)  
+B: anova(Factor A+A*B, FactorA+B+A*B)  
+AB: anova(FactorA+B, FactorA+B+A*B)    
+
+- Most common, most recommended  
+- Still strange, in that it tests higher order term without a lower order term in the model  
+- Use Anova function from car package   
+
+---
+
+## Type 2: Not popular
+A: anova(Factor B, FactorA+B)  
+B: anova(Factor A, FactorA+B)  
+AB: anova(FactorA+B, FactorA+B+A*B)  
+
+- Need to use car::Anova function  
+- Most interpretable, in my opinion.   
+
+---
+
+## Effect sizes
+- Eta squared is like R squared for an effect 
+- SS effect / SS total    
+<br>
+- Partial eta squared (SS effect / (SS effect + SS resid))  
+- The variance explained by a given variable of the variance remaining explained by other predictors  
+
+
+---
+
+```{r}
+library(lsr)
+etaSquared(lm.1)
+```
+---
+## Don't forget omega squared and cohen’s f
+
+- Better than eta, adjusts for bias
+- Omega Squared is always smaller than Eta Squared.  
+- see: http://daniellakens.blogspot.com/2015/06/why-you-should-use-omega-squared.html   
+- cohen's f is used in pwr but it isn't popular or intuitive  
+
+---
+
+## ANCOVA
+- ANalysis of COVAriance
+- aka regression with continuous and nominal variables 
+- given a special name because of historical reasons
+- Typically, when someone says they are doing an ANCOVA they are focused on comparing group means adjusted for some covariate
+
+---
+
+## ANCOVA
+
+$$\hat{Y} = b_{0} + b_{1}D_{1} + b_{2}D_{2} + b_{3}GPA$$
+- how do you interpret each term?
+- what does this look like graphed? 
+- Would b1 and b2 change if we ran a model without GPA? 
+ 
+---
+## 2 advantages of ANCOVA
+1. Greater power
+2. Adjustment of/controlling for covariate
+
+---
+## ANCOVA power advantages
+- what is SS residual? 
+- how is it used to test your model? 
+- how can you decrease SS residual? 
+---
+## ANCOVA power advantages
+- power does not necessarily incrase if covariate is related to the predictor (e.g., group). Why?
+- how do you find groups not related to the covariate?
+---
+## Controlling for background covariates
+- in experimental designs, power should be main focus
+- in quasi-experimental designs, covariates should help "equate" groups
+
+$$\hat{Y} = b_{0} + b_{1}D_{1} + b_{2}D_{2} + b_{3}GPA$$
+
+- note: you are now making a different prediction for each individual, rather than having the same prediction for all group members 
+- likely also reduces SS residual
+---
+## Controlling for background covariates
+- controlling for is not a panacea
+- does not fix issues when random assignment is ineffective
+- could create greater group difference, no difference or even reverse the difference
+
+---
+## ANCOVA assumptions 
+- Standard ANCOVA assumes no interactions; regression association is the same across groups
+
+$$\hat{Y} = b_{0} + b_{1}D_{1} + b_{2}D_{2} + b_{3}GPA$$
+
+$$\hat{Y} = b_{0} + b_{1}D_{1} + b_{2}D_{2} + b_{3}GPA + b_{4}(D_{1} * GPA) + b_{5}(D_{2} * GPA)$$
+---
+
+```{r}
+aov.2 <- aov(Anxiety ~ group + SupportLevel + group*SupportLevel + Stress, data=data)
+summary(aov.2)
+```
+
+---
+```{r}
+summary(aov.1)
+```
+---
+```{r}
+em.2<- emmeans(aov.2, c("group", "SupportLevel"))
+em.2
+```
+
+---
+```{r}
+em.1
+```
+

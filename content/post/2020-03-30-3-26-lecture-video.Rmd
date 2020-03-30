@@ -1,0 +1,20 @@
+---
+title: '3/26 lecture video '
+author: ''
+date: '2020-03-30'
+slug: 3-26-lecture-video
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-03-30T17:29:19-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+The lecture for 3/26 is now available: https://wustl.zoom.us/rec/share/385ZEr7t12ZJAZXiyVj7WqEkL4bCT6a81CJI_6cKyBvu5BHcAeb-6gMTZv6qxPN2

@@ -5,12 +5,24 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>5067 Quantitative Methods II</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>5067 Quantitative Methods II</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>3/26 lecture video </title>
+      <link>/post/3-26-lecture-video/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/3-26-lecture-video/</guid>
+      <description>
+
+
+&lt;p&gt;The lecture for 3/26 is now available: &lt;a href=&#34;https://wustl.zoom.us/rec/share/385ZEr7t12ZJAZXiyVj7WqEkL4bCT6a81CJI_6cKyBvu5BHcAeb-6gMTZv6qxPN2&#34; class=&#34;uri&#34;&gt;https://wustl.zoom.us/rec/share/385ZEr7t12ZJAZXiyVj7WqEkL4bCT6a81CJI_6cKyBvu5BHcAeb-6gMTZv6qxPN2&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Homework and recording</title>
@@ -138,6 +150,10 @@
       <description>
 
 
+&lt;div id=&#34;interactions-week-11&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Interactions Week 11&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;/Lectures/anova-8.html&#34;&gt;Factorial ANOVA Slides&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;interactions-week-8---10&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Interactions Week 8 - 10&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;/Lectures/Interactions-7.html&#34;&gt;Interactions and moderation Slides&lt;/a&gt;&lt;/p&gt;
