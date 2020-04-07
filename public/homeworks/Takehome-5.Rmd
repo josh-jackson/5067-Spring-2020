@@ -1,0 +1,40 @@
+---
+title: "Factorial ANOVA take home"
+output: html_document
+---
+
+# Due 4/21
+
+<br>
+Turn in via email to: Homewor.2mzarpgq6ic7tqzt@u.box.com by attaching a pdf and a rmd or a rnw file of your code and answers. Use your last name to label the file and include your name as part of the document front/top-matter.
+
+<br>
+All take home projects are **INDEPENDENT** projects; do not share code or answers. 
+
+Data (project 5 data, see below) come from experiment 1 in Maglio & Polman (2014) where they examined whether a person’s spatial orientation would affect perceived distance (Also see article). They conducted the experiment on a train. Half of the participants were headed eastbound whereas the other half were headed westbound. Participants were also randomly assigned to indicate the subjective distance of one of the four subway stations.
+
+https://raw.githubusercontent.com/josh-jackson/5067-Spring-2020/master/th.project.5.csv
+
+
+1. What are the sample sizes for each group? Compute using R, not the information from the paper. 
+
+2.Run the factorial ANOVA from Experiment 1. Interpret each of the SSs and Fs. 
+
+3. What is the effect size associated with each of your terms? What is the R2 for the model? 
+
+4. Conduct a series of post hoc tests that address the author's hypotheses. Provide effect sizes and confidence intervals in addition to NHST. Interpret.  
+
+5. Do your overall conclusions line up with those of the author's? Is there any place you would disagree with the authors' analyses and/or write up? 
+
+6. Graph the results in a manner that you think best conveys that data (it may not be the same as in the article). Make sure you include 95% CIs. Include raw data points and/or the distribution of scores if possible. 
+
+7. Would the overall conclusions of the authors change if they did not collect data two stops away, instead only collecting data for the St. George and the Bloor-Yonge stop (making this a 2x2 design). Renalalyze the dataset without including those datapoints. What are your conclusions? 
+
+8. Run a power analysis to determine sample size needed for the effect sizes found in #2. (note: pwr package is a nice one to use but be sure to use the glm/regression one as opposed to the one-way anova. Also, pay close attention to the effect size requested. Those more adventurous can perform simulations to calculate power)
+
+9. The power analysis in #5 does not give you the power for detecting differences between two cell means. Find the number of subjects needed for a effect size difference of .4 between two cell means, assuming no corrections for type 1 error.  
+
+10. Assume that the researchers had an additional variable, familiarity with the area, to use as a covariate. The reasoning is that people who know the area well may make better distance predictions than those that don't. How do you think this would impact the findings? Describe what would change in terms of your standard regression components (why and in what direction). 
+
+
+
