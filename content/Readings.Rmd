@@ -21,3 +21,15 @@ pdf version: https://learningstatisticswithr.com/lsr-0.6.pdf
 [Multiple Regression Cohen Chapter](/Readings/Cohen-MR.pdf)
 
 [Dawtry et al 2015 Psych Science for HW#2](/Readings/Dawtry2015-PS.pdf)
+
+[Interactions](/Readings/Interactions-Cohen.pdf.pdf)
+
+[Maglio & Polman (2014) for HW #5](/Readings/Maglio-and-Polman-2014.pdf)
+
+[ANOVA reading #1](/Readings/ANOVA-Chapter9.pdf)
+
+[ANOVA reading #2](/Readings/ANOVA-Chapter10.pdf)
+
+[Logistic Regression](/Readings/Logistic-chapter.pdf)
+
+

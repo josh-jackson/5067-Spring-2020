@@ -1,0 +1,22 @@
+---
+title: 'Homework #5'
+author: ''
+date: '2020-04-07'
+slug: homework-5
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-07T16:29:24-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+HW#5 is posted! Due 4/21
+
+Also 4/7 lecture: https://wustl.zoom.us/rec/share/349LJa3f10lJaZ3RwWbmVZIcH4nBX6a81iVNrPZenhwZO6s5RT-0UGuzPV-sEc3v
