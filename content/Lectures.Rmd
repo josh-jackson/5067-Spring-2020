@@ -5,7 +5,10 @@ date: "1/8/2020"
 output: html_document
 ---
 
-## Interactions Week 11
+## Logistic Week 13
+[Logistic Slides](/Lectures/logistic-9.html)
+
+## ANOVA week 11-12
 [Factorial ANOVA Slides](/Lectures/anova-8.html)
 
 ## Interactions Week 8 - 10
