@@ -1,0 +1,23 @@
+---
+title: new online lectures
+author: ''
+date: '2020-04-07'
+slug: online-lectures
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-07T09:01:15-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+4/2: https://wustl.zoom.us/rec/share/v8dfBrTT1WROTaP3q1H9YJR6MqrYaaa8g3NPqPUMy0705Gfu579oiYkFDKjDVRT-
+
+3/31: https://wustl.zoom.us/rec/share/opB-F77i5ztLfoXnz2HjXZcQEcPnX6a81CYeqPpczk8napeoVeYxXJgYlLnL-b7e

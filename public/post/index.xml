@@ -5,12 +5,25 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>new online lectures</title>
+      <link>/post/online-lectures/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/online-lectures/</guid>
+      <description>
+
+
+&lt;p&gt;4/2: &lt;a href=&#34;https://wustl.zoom.us/rec/share/v8dfBrTT1WROTaP3q1H9YJR6MqrYaaa8g3NPqPUMy0705Gfu579oiYkFDKjDVRT-&#34; class=&#34;uri&#34;&gt;https://wustl.zoom.us/rec/share/v8dfBrTT1WROTaP3q1H9YJR6MqrYaaa8g3NPqPUMy0705Gfu579oiYkFDKjDVRT-&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3/31: &lt;a href=&#34;https://wustl.zoom.us/rec/share/opB-F77i5ztLfoXnz2HjXZcQEcPnX6a81CYeqPpczk8napeoVeYxXJgYlLnL-b7e&#34; class=&#34;uri&#34;&gt;https://wustl.zoom.us/rec/share/opB-F77i5ztLfoXnz2HjXZcQEcPnX6a81CYeqPpczk8napeoVeYxXJgYlLnL-b7e&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>3/26 lecture video </title>
