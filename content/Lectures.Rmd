@@ -5,6 +5,10 @@ date: "1/8/2020"
 output: html_document
 ---
 
+
+## Over/underfitting Week 14
+[Over/underfitting Slides](/Lectures/fit-10.html)
+
 ## Logistic Week 13
 [Logistic Slides](/Lectures/logistic-9.html)
 

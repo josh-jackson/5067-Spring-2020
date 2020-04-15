@@ -27,3 +27,5 @@ Note: In some instances I describe doing a question “by hand,” which means u
 
 [Take home #5](/Homeworks/Takehome-5.html)
 
+[Take home #6](/Homeworks/Takehome-6.html)
+

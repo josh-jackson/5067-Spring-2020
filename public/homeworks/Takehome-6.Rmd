@@ -1,0 +1,25 @@
+---
+title: "glm/logistic take home"
+output: html_document
+---
+
+# Due: 4/28
+<br>
+Turn in via email to: Homewor.qonsl05xf69efg3k@u.box.com by attaching an rmd or a rnw file of your code and answers. Use your last name to label the file and include your name as part of the document front/top-matter.  
+<br>
+All take home projects are **INDEPENDENT** projects; do not share code or answers. 
+
+
+Use the mortality dataset to answer the questions below. https://raw.githubusercontent.com/josh-jackson/5067-Spring-2020/master/mortality.csv
+
+1. Using the glm function, run a multiple regression with IQ to predict and mortality status. Past studies have found that higher levels of IQ are assocaited with longer life. Use this information to make sure you interpret the direction of your results correctly. Then run the same function using the lm function. What are the similarities, what are the differences between these two approaches? Look at both the anova and the summary functions. 
+
+2. Now control for risky behavior. Interpret all of the coefficients. 
+
+3. What is the predicted probability of being prematurely dead for a person 1 standard deviation above IQ and 1 standard deviation above in Risky Behavior. What about a standard deviation below for each? 
+
+4. Graph the relationship between IQ and mortality. To do so you create predicted probabilities across the range of IQ.
+
+5. Instead of using a logit link function, rerun the analysis in #2 using a probit link function. What differences do you notice? 
+
+

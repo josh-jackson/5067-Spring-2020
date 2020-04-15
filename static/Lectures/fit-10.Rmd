@@ -1,0 +1,244 @@
+---
+title: "Fit-10"
+author: Josh Jackson
+date: "4-16-20"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: xaringan-themer.css
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: "16:9"
+---
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+mono_light(
+  base_color = "#23395b",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Droid Mono"),
+)
+
+library(tidyverse)
+library(broom)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 4em 1em 4em;
+}
+
+.small .remark-code { 
+  font-size: 80% !important;
+}
+.tiny .remark-code {
+  font-size: 65% !important;
+}
+</style>
+
+## How to build a regression model
+
+- What variables to include, what to leave out, etc. 
+
+- 3 standard approaches: 1. Use theory 2. Let the data decide 3. Compare models
+
+---
+## Goal of regression
+- Our inferences are about populations
+- Want to generalize to other samples beyond the one collected
+
+    1. Explain (What leads to happiness?)
+    2. Estimate (How large is the influence of friends?)
+    3. Predict (Who will be happiest?)
+
+---
+## Prediction
+
+At the simplest level, prediction is just feeding our data back into our model
+```{r, eval = FALSE}
+pred.1 <- predict(model.1)
+```
+
+We use predictions to evaluate our model via R2 and sigma
+
+---
+## Problems with this approach
+- But fit is relative to our sample, not the population
+- Does our model include all relevent variables (remember our assumption)?
+- Need to balance between parsimony and completeness
+
+- "Building" models up or "pruning" models down
+
+---
+## Overfitting
+- Ironically, the best fitting model may not be the *best* model 
+
+- This is because the model will be tuned to our particular random sample, but not other random samples
+
+- We are "fitting the noise" or overfitting the specifics of our sample
+
+- Not only do additional predictor terms not help, they can hurt!
+
+- This leads to poorer prediction of new samples, as our model does not reflect the population model. 
+
+- Our ultimate goal is to identify the true population model, not just increase fit
+
+---
+
+## Overfitting 
+
+- Even if we have a set number of predictors we are going to use we tend to overfit true population
+
+$$\hat{Y} = b_{0} + b_{1}X + b_{2}Z$$
+
+Will not be equal to 
+$$Y = \beta_{0} + \beta_{1}X + \beta_{2}Z$$
+
+because we use the specifics of that sample to estimate our coefficients
+
+- Thus our estimates will be biased towards our sample specific idiosyncrasies 
+
+---
+```{r}
+set.seed(1234)
+x.1 <- rnorm(1000, 0, 1)
+x.2 <- rnorm(1000, 0, 1)
+e.1 <- rnorm(1000, 0, 1)
+y.1 <- .1 + .25 * x.1 + .5 * x.2 + e.1
+d.1 <- data.frame(x.1,x.2,y.1)
+m.1 <- lm(y.1 ~ x.1 + x.2, data = d.1)
+```
+---
+.tiny[
+```{r}
+summary(m.1)
+
+```
+]
+
+--- 
+## Mo' variables, mo' problems
+Adding lots of variables to your model will result in more dramatic overfitting. 
+
+$$Y = \beta_{0} + \beta_{1}X + \beta_{2}Z$$
+$$\hat{Y} = b_{0} + b_{1}X + b_{2}Z + b_{3}q + b_{4}r + b_{5}s + b_{6}t +  b_{7}u + b_{8}v +  b_{9}w$$
+
+---
+## Relationship to p-hacking
+
+- Making your model work ie finding the set of covariates that make a p-value fall under .05 will lead to over fitting. 
+- Findings may be sample specific -- it is hard to know whether the covariate or interaction term that changes your interpretation works for just this sample or this sample and the population
+- Another reason why preregistration is a good thing: it safeguards against potential overfitting
+
+---
+## Underfitting
+- Adding lots of variables to your model will result in more dramatic overfitting, but too few variables will result in underfitting
+
+- here we are not using  information that could be useful, resulting in poor predictions
+
+---
+## How do we fix?  
+ 
+Two broad solultions: 
+1. Cross validation/information theory
+2. Regularization
+
+---
+## Cross validation (simplest definition)
+- Compare different models in their prediction in and out of sample (a test sample)
+- Predictions to NEW DATA are seen as key, as this seperates the sample specific influence (irregular features) from population influence (regular features)
+- Identify the model with the lowest test set error (MSE)
+- Not always possible to find a large enough test sample
+---
+## k-fold validation (a type of CV)
+- Samples are randomly partitioned into sets (called folds) of roughly equal size
+- model is "trained" on k-1 folds, and then validated with the remaining fold
+- k is usually 5-10
+- E.g., k = 10, 90% of data is used to train, 10% to predict and validate.
+- Average MSE across all of the validation folds, choose model with lowest average MSE
+---
+
+## leave one out (LOO) validation 
+- like k-fold but but k = sample size, N. 
+- Run model with kth datapoint omitted. 
+- Observe the average MSE or residual standard error (sigma)
+- compare the average MSE among competing models
+
+---
+## Deviance and information theory
+- we just saw this in our GLM/logistic output. Deviance scores are measure of information
+- by information, we mean the reduction in uncertainty from learning an outcome (like we do when we collect data)
+- deviance is a model of relative fit, often going by -2loglikelihood
+- The likelihood of a particular value of a parameter is the probability of obtaining the observed data if the parameter had that value. It measures how well the data supports that particular value
+- The maximum likelihood estimate of a parameter is the value of the parameter for which the probability of obtaining the observed data if the highest
+- From these deviances/likelihoods we can create metrics that provide ~equivalent estimates to cross validation
+- AIC (see in glm output), BIC, WAIC, DIC, etc
+
+ex: 
+- AIC = deviance(training) + 2p
+
+---
+## Using information critera
+
+- Each of these criteria do not have scales that are bounded by numbers (eg 0-1), nor can they be evaluated by some other number (eg SDs)
+- Provide relative fit, so you need to compare different models, choosing the model with the lowest IC
+- The criteria are also dependent on sample size, so you cannot compare across models that differ in sample size
+- You can compare non-nested models eg ones with different sets of predictors
+
+---
+## Regularization
+
+- "penalizing" our model estimates to prevent overfitting
+- lasso regression is most common (ridge regression too)
+- find coefficients that compromise between (a) minimizing the SS
+and (b) minimizing sum of abs value of coefficients
+- Tends to "shrink"" coefficients to zero
+- Shrinkage/penalization is based on lambda
+
+---
+```{r}
+library(glmnet)
+library(dplyr)
+iris
+    fit.ols <- lm(Sepal.Length~Sepal.Width+Petal.Length+Petal.Width, data=iris)
+    y <- iris$Sepal.Length
+    x <- iris %>% dplyr::select(Sepal.Width, Petal.Length,Petal.Width) %>% data.matrix()
+    lambdas <- 10^seq(-4, 1, by = 1)
+    fit.lasso <-glmnet(x = x, y = y,  lambda = lambdas) 
+```
+
+
+---
+```{r}
+library(broom)
+
+tidy(summary(fit.ols))
+```
+
+---
+```{r}
+coef(fit.lasso)
+```
+
+--- 
+## Regularization
+- Bayesian modeling does this naturally through skeptical priors
+- Can do regularization and information criteria techniques simultanously
+
+
+
+
+
+
+
+
+
+
+
+
+
