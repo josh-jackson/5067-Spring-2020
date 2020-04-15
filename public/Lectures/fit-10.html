@@ -54,7 +54,7 @@ We use predictions to evaluate our model via R2 and sigma
 
 ---
 ## Problems with this approach
-- But fit is relative to our sample, not the population
+- But fit is relative to our sample, not the population 
 - Does our model include all relevent variables (remember our assumption)?
 - Need to balance between parsimony and completeness
 
@@ -148,7 +148,7 @@ Adding lots of variables to your model will result in more dramatic overfitting.
 ## Underfitting
 - Adding lots of variables to your model will result in more dramatic overfitting, but too few variables will result in underfitting
 
-- here we are not using  information that could be useful, resulting in poor predictions
+- Here we are not using information that could be useful, resulting in poor predictions
 
 ---
 ## How do we fix?  
@@ -173,10 +173,10 @@ Two broad solultions:
 ---
 
 ## leave one out (LOO) validation 
-- like k-fold but but k = sample size, N. 
+- Like k-fold but but k = sample size, N. 
 - Run model with kth datapoint omitted. 
 - Observe the average MSE or residual standard error (sigma)
-- compare the average MSE among competing models
+- Compare the average MSE among competing models
 
 ---
 ## Deviance and information theory
@@ -185,7 +185,11 @@ Two broad solultions:
 - deviance is a model of relative fit, often going by -2loglikelihood
 - The likelihood of a particular value of a parameter is the probability of obtaining the observed data if the parameter had that value. It measures how well the data supports that particular value
 - The maximum likelihood estimate of a parameter is the value of the parameter for which the probability of obtaining the observed data if the highest
+
+---
+## Deviance and information theory
 - From these deviances/likelihoods we can create metrics that provide ~equivalent estimates to cross validation
+
 - AIC (see in glm output), BIC, WAIC, DIC, etc
 
 ex: 
@@ -421,6 +425,7 @@ tidy(summary(fit.ols))
 ```
 
 ---
+.tiny[
 
 ```r
 coef(fit.lasso)
@@ -434,8 +439,8 @@ coef(fit.lasso)
 ## Petal.Length .        .        0.3724731  0.5340560  0.6900394  0.7055196
 ## Petal.Width  .        .        .         -0.1694535 -0.5143649 -0.5486015
 ```
-
---- 
+]
+---
 ## Regularization
 - Bayesian modeling does this naturally through skeptical priors
 - Can do regularization and information criteria techniques simultanously
