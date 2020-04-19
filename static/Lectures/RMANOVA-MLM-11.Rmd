@@ -1,0 +1,634 @@
+---
+title: "MLM-11"
+author: Josh Jackson
+date: "4-21-20"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    lib_dir: libs
+    css: xaringan-themer.css
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: "16:9"
+---
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+mono_light(
+  base_color = "#23395b",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Droid Mono"),
+)
+
+library(tidyverse)
+library(broom)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 4em 1em 4em;
+}
+
+.small .remark-code { 
+  font-size: 80% !important;
+}
+.tiny .remark-code {
+  font-size: 65% !important;
+}
+</style>
+
+## Outline
+- Conceptual Repeated Measures ANOVA (RM ANOVA)
+- "Mixed" models aka Multilevel models (MLM), hierarchical linear models (HLM), random-effects models...
+
+These models allow us to: 
+- Assess people more than once (within person, longitudinal)
+- Account for dependencies that occur with groups/nested structures 
+
+---
+
+## why would we want to do this? 
+
+1. our primary interest may be to study the change of an outcome over time, e.g., a learning effect. 
+2. multiple outcomes for each subject allows each subject to be his or her own “control”. This allows us to remove subject-to-subject variation (i.e., individidual differences), increasing power 
+<br>
+<br>
+- When would we *not* want to do this? 
+
+---
+
+## Repeated measures ANOVA
+- RMANOVA (within subjects ANOVA)
+- can also do a mixed designs (both between and within) sometimes refered to as split-plot
+- You can think of these as furthering our goal of variance decomposition
+
+
+Terminology aside:
+- SS between-groups (SSregression) and SS within-groups (SSresidual)
+- between-subjects and within-subjects designs
+
+---
+
+## one way RM ANOVA
+.pull-left[
+- extension of the paired t-test  
+- A measure before and after a intervention OR A measure repeated across multiple conditions such as condition A, B, and C
+
+- SStotal = SSbetween + SSwithin 
+- SStotal = SSbetween + SStreatment + SSresidual
+]
+
+.pull-right[
+  
+| ID   |wine #1|  #2  | #3  |  #4 | Mean | 
+|------|-------|------|-----|-----|------|
+| 1    |  2    |  5   |  3  |  3  | 3.25 |  
+| 2    |  4    |  6   |  5  |  4  | 4.75 |  
+| 3    |  5    |  7   |  4  |  5  | 5.25 |   
+| 4    |  3    |  4   |  3  |  4  | 3.5  |  
+| 5    |  6    |  7   |  6  |  5  | 6.0  |  
+| 6    |  2    |  5   |  4  |  3  | 3.5  |   
+| 7    |  4    |  5   |  6  |  4  | 4.75 |
+| mean | 3.63  | 5.63 | 4.38| 4.25|      |
+]
+---
+## SS interpretations
+- SS between: Deviation of subjects' individual means (across treatments) from the grand mean.
+  + This component is interpreted as 'do subjects differ' from one another?
+- SStreatment: comparison of treatment marignal means to grand mean
+- SSresidual:  
+    + Variability of individuals’ scores about their treatment mean
+    + SS residual still is our measure of leftover error variance and used for denominator of F
+
+---
+## Smaller error term compared to between subjects 
+
+.pull-left[
+| ID   |wine #1|  #2  | #3  |  #4 | Mean | 
+|------|-------|------|-----|-----|------|
+| 1    |  2    |  5   |  3  |  3  | 3.25 |  
+| 2    |  4    |  6   |  5  |  4  | 4.75 |  
+| 3    |  5    |  7   |  4  |  5  | 5.25 |   
+| 4    |  3    |  4   |  3  |  4  | 3.5  |  
+| 5    |  6    |  7   |  6  |  5  | 6.0  |  
+| 6    |  2    |  5   |  4  |  3  | 3.5  |   
+| 7    |  4    |  5   |  6  |  4  | 4.75 |
+| mean | 3.63  | 5.63 | 4.38| 4.25|      |
+]
+vs
+.pull-right[
+|  |wine #1|  #2  | #3  |  #4 |  
+|------|-------|------|-----|-----|
+|      |  2    |  5   |  3  |  3  |    
+|      |  4    |  6   |  5  |  4  |  
+|      |  5    |  7   |  4  |  5  |   
+|      |  3    |  4   |  3  |  4  |   
+|      |  6    |  7   |  6  |  5  |  
+|      |  2    |  5   |  4  |  3  |  
+|      |  4    |  5   |  6  |  4  | 
+| mean | 3.63  | 5.63 | 4.38| 4.25|   
+]
+
+---
+## extensions
+- If the overall ANOVA yields a significant result one can test:  
+     + pair-wise comparisons  
+     + linear, quadratic contrasts  
+
+- involve between person (and/or more within person) variables
+- involve interactions
+
+---
+## Example
+
+- Between and within factor  
+<br>
+- Wine tasting by groups (sophomores, sommeliers, souses)  
+  + Are some wines rated better? (within person q)  
+  + Do groups rate wine differently (between)  
+  + Do sommeliers especially dislike merlot? (within- between subjects interaction)  
+
+---
+## Problems with RM ANOVA
+The sphericity assumption (also known as the homogeneity of variance of differences assumption) assumes the variance of the differences between any two levels of a within subjects factor (e.g,. condition, time) is equivalent
+
+- Can adjust df if violated using: Greenhouse-Geisser Epsilon, Huynh-Feldt Epsil, Pillai’s Trace, Wilk’s Lambda, Hotelling’s Trace, or Roy’s Largest Root
+
+---
+## Problems with RM ANOVA
+- complete data, no missing cases (unless you do RM MANOVA)
+- spacing is same for all within person if ordinal variable (eg time)
+- spacing is the same for all subjects
+- does not handle continuous predictors 
+- cannot do time varying covariates
+- no individaul level trends (assumes everyone is the same)
+- not simpler than alternatives
+
+---
+## which is why you should use
+- MLM, HLM, mixed models, mixed effects, random effects models, etc. 
+
+- If you make assumptions and restrictions to this model you can re-create the RM ANOVA
+
+- But mlm is inherently more flexible AND it is a natural extension of the glm... meaning you can use everything you've learned this semester
+
+---
+## Nesting, heirarchy and dependency
+- students within schools
+- observations within people 
+- members witin family
+- people within counties
+- observations within people within classrooms within grades within schools within districts within counties within states
+<br>
+- ignoring this grouping leads to more unexplained variablity
+- innacurate comparisons (e.g. simpson's paradox)
+
+---
+## Example
+```{r, message = FALSE}
+library(tidyverse)
+
+simp<- tribble(
+  ~ID, ~group,  ~test.score, ~study,
+1,1,5,1,
+2,1,7,3,
+3,2,4,1,
+4,2,6,4,
+5,3,3,3,
+6,3,5,5,
+7,4,2,4,
+8,4,4,6,
+9,5,1,5,
+10,5,3,7)
+```
+
+---
+```{r, echo=FALSE}
+ggplot(simp, aes(x=study, y=test.score)) +
+    geom_point() +   
+    geom_smooth(method=lm,  
+                se=FALSE) 
+```
+
+---
+## could aggragate across group
+- similar to averaging across trials or conditions
+```{r}
+simp.1<- tribble(
+  ~ID, ~group,  ~test.score, ~study,
+  1,1,6,2,
+  2,2,5,3,
+  3,3,4,4,
+  4,4,3,5,
+  5,5,2,6)
+```
+
+---
+
+```{r, echo=FALSE}
+g1 <- ggplot(simp.1, aes(x=study, y=test.score)) +
+    geom_point() +    
+    geom_smooth(method=lm,   
+                se=FALSE) 
+g1
+```
+---
+## what about at the individual level? 
+
+```{r, echo=FALSE}
+library(knitr)
+
+ggplot(simp, aes(x=study, y=test.score, group = group)) +
+    geom_point() +   
+    geom_smooth(method=lm,  
+                se=FALSE) 
+```
+
+---
+
+```{r, echo=FALSE}
+library(knitr)
+
+ g1 + geom_point(data = simp, aes(x=study, y=test.score, group = group)) + geom_smooth(data = simp, aes(x=study, y=test.score, group = group), method=lm, se=FALSE) 
+```
+
+---
+## Aggregation obscures hypotheses
+
+- Test scores and time spent studying  
+
+- Between person H1: Do students who study more get better grades?   
+
+- Within person H2: When a student studies, do they get better grades?
+			        	
+- Notice that H1 and H2 are independent from one another!
+
+---
+## Cons of aggregating:
+    - reduced power  
+    - change the unit of analysis and thus change the meaning  
+    - more difficult to make inferences because you are collapsing across levels of analysis 
+   
+---
+## fixed effects (standard) regression
+$$\hat{Y}_{i} = b_{0} + b_{1}X_{1} + b_{2}X_{2} + b_{3}X_{3}+...$$
+- Parameters are considered fixed, only one value  
+- If we estimate a stroop effect, everyone is assumed to have the same effect. If people do not have a stroop effect or a larger than average one, where does that information go? 
+
+---
+## random effects
+- Can have random parameters that are not fixed, taking on many values
+- Random as in they are sampled from some population and thus can vary (population of stroop effects)
+- Random effects indicate to what extent do your subjects (or whatever your grouping factor is) differ from your fixed effect (average across everyone)
+- Much like in RM ANOVA, we are going to quantify the subject effect. Instead of putting that in the error term like normal regression, we can seperate it out. 
+
+---
+## regression models within regression models
+- The most basic regression model is the standard one, where we ask is there an effect for our tx variable. Then we have another regression model embeded within that where we can ask who has more or less of that effect. 
+
+If $\beta_{1}$ is the average stroop effect (same as our interpretation all semester long) across all people
+$$Y_{i} = \beta_{0} + \beta_{1}X_{1} + \varepsilon_i$$
+We can then think of $\beta_{1}$ as a random variable where people differ on stroop effect from the average fixed effect. You can then predict this variable like you would any other DV 
+
+$$\beta_{1} = \gamma_{0} + \gamma_{1}Z+ U_i$$
+
+---
+## random effects
+To create these types of models you need multiple observations of some unit of analysis: 
+- Trials(i) within people (j)
+- students (i) within schools(j)
+- observations within people (items, blocks, conditions)
+- members (i) witin family (j) 
+
+Once you are aware of this structure (clustering, heirarchical, nested) you start to see it everywhere
+
+---
+## most basic mixed effects model
+- Predicting by an intercept (mean)
+- Lets say we have 10 reaction time trials (i) per person (j)
+  $${Y}_{ij} = \beta_{0j}  +\varepsilon_{ij}$$
+- We can model that everyone does not have the same average by looking at deviations around that average $\gamma_{00}$ for each j person with $U_{0j}$ representing each person deviation from that average
+  $${\beta}_{0j} = \gamma_{00} + U_{0j}$$
+Final equation:
+ $${Y}_{ij} = \gamma_{00} + U_{0j}  + \varepsilon_{ij}$$
+---
+## putting it together  
+Level 1: ${Y}_{ij} = \beta_{0j}  +\varepsilon_{ij}$ 
+
+Level 2: ${\beta}_{0j} = \gamma_{00} + U_{0j}$  
+
+Combined: ${Y}_{ij} = \gamma_{00} + U_{0j}  + \varepsilon_{ij}$  
+ 
+- There are now two sources of variance within-person $\varepsilon_{ij}$ and between-person $U_{0j}$
+
+- Contrast with if we averaged over people ${Y}_{j} = \beta_{0}  +\varepsilon_{j}$.  $\varepsilon_{j}$ would reflect variation both within and between people variance. 
+
+---
+## Level 1 vs Level 2
+- Level 1 is the smallest unit of analysis  
+    + students, observations, trials, family members
+
+- Level 2 variables are constant for all level 1 variables that are “nested” in it  
+    + people, schools, counties, families, dyads
+    
+- Can have more than 2 levels
+---
+## Random intercepts, fixed slopes
+
+Level 1: ${Y}_{ij} = \beta_{0j}  + \beta_{1j}X_{1} + \varepsilon_{ij}$
+  
+If a variable at level 1 can be viewed as an average of some broader distribution it can be represented at level 2. 
+
+Level 2:  
+${\beta}_{0j} = \gamma_{00} + U_{0j}$   
+${\beta}_{1j} = \gamma_{10}$ 
+ 
+Here we assume that everyone has the same $\beta_{1j}$ With no deviations at the between group (person) level. Whereas $U_{0j}$ reflects variability in the person level intercept. 
+
+Putting it together: ${Y}_{ij} = \gamma_{00} + \gamma_{10} (X_{1})+ U_{0j}  + \varepsilon_{ij}$
+
+---
+## What does this look like graphically? 
+- think of as an individual regressoin for each person
+- because intercept are random, people can vary
+- because slopes are fixed, people have the same slope
+- two types of residuals: 
+    + represents how much variability there is in the intercepts from person to person 
+    + based on individual scores from their predicted score, much like around the regression line
+
+---
+## Random intercepts, random slopes
+
+Level 1:
+  $${Y}_{ij} = \beta_{0j}  + \beta_{1j}(X_{1}) + \varepsilon_{ij}$$
+  
+  
+ Level 2:  
+  $${\beta}_{0j} = \gamma_{00} + U_{0j}$$  
+  $${\beta}_{1j} = \gamma_{10} + U_{1j}$$  
+  
+  
+Putting it together: 
+  $${Y}_{ij} = \gamma_{00} + \gamma_{10}(X_{1})+ U_{0j} + U_{1j} (X_{1})+ \varepsilon_{ij}$$
+  
+---  
+## adding covariates and predictors
+- can add covariates and predictors at level 1 and level 2
+Level 1:
+  $${Y}_{ij} = \beta_{0j}  + \beta_{1j}(X_{1}) + \varepsilon_{ij}$$
+ Level 2:  
+  $${\beta}_{0j} = \gamma_{00} + U_{0j}$$  
+  $${\beta}_{1j} = \gamma_{10} + \gamma_{11}Age + U_{1j}$$  
+
+--- 
+## Estimation
+
+- Maximum Likelihood
+- Bayesian Estimation
+
+---
+## Data structure
+
+- long vs wide
+- use tidyr to convert
+
+---
+## ICC
+
+Level 1: 
+  $${Y}_{ij} = \beta_{0j}  +\varepsilon_{ij}$$
+  
+Level 2:
+  $${\beta}_{0j} = \gamma_{00} + U_{0j}$$  
+  
+Combined:
+  $${Y}_{ij} = \gamma_{00} + U_{0j}  + \varepsilon_{ij}$$
+
+
+$$\frac{U_{0j}}{U_{0j}+ \varepsilon_{ij}}$$
+
+- % variation between vs within group (person) variance
+
+
+---
+## Example
+
+```{r, echo=FALSE, message=FALSE}
+alcohol1 <- read_csv("alcohol1.txt")
+
+library(tidyverse)
+library(broom)
+
+alcohol1 <- as_tibble(alcohol1)
+```
+
+
+```{r}
+alcohol1
+```
+
+---
+
+```{r, message=FALSE, eval=FALSE}
+library(lme4)
+model.1 <- lmer(alcuse~ 1 + (1 | id), data = alcohol1)
+summary(model.1)
+```
+
+---
+.tiny[
+```{r, message=FALSE, echo=FALSE}
+library(lme4)
+model.1 <- lmer(alcuse~ 1 + (1 | id), data = alcohol1)
+summary(model.1)
+```
+]
+---
+
+```{r, message=FALSE}
+library(reghelper)
+ICC(model.1)
+```
+
+
+
+
+---
+```{r, echo=FALSE}
+alcohol1 <- alcohol1 %>% 
+  mutate(time = age-14) 
+
+```
+
+
+```{r, eval=FALSE}
+
+model.2 <- lmer(alcuse ~ time + (1 | id), data = alcohol1)
+summary(model.2)
+```
+
+
+
+---
+.tiny[
+```{r, echo=FALSE}
+
+model.2 <- lmer(alcuse ~ time + (1 | id), data = alcohol1)
+summary(model.2)
+```
+]
+
+---
+
+```{r, eval=FALSE}
+model.3 <- lmer(alcuse ~ time + (1 + time| id), data = alcohol1)
+summary(model.3)
+
+## Fixed effects are outside of the parenthesis 
+## and the random effects are inside
+```
+
+---
+.tiny[
+```{r, echo=FALSE, message = FALSE}
+alcohol1$time <- alcohol1$age -14 
+model.3 <- lmer(alcuse ~ time + (1 + time| id), data = alcohol1)
+summary(model.3)
+```
+]
+
+---
+```{r, message=FALSE, eval=FALSE}
+library(lmerTest)
+summary(model.3)
+#gives you p-values, if you really want it
+```
+
+
+---
+```{r}
+ggplot(alcohol1,
+   aes(x = time, y = alcuse, group = id)) + stat_smooth(method = "lm", se = FALSE)
+```
+
+
+---
+
+```{r, message=FALSE, eval=FALSE}
+model.4 <- lmer(alcuse~ time + coa + coa*time + (time | id), data = alcohol1)
+summary(model.4)
+```
+
+
+---
+.tiny[
+```{r, message=FALSE, echo=FALSE}
+model.4 <- lmer(alcuse~ time + coa + coa*time + (time | id), data = alcohol1)
+summary(model.4)
+```
+]
+---
+
+```{r, warning=FALSE}
+tidy(model.4)
+```
+
+---
+```{r, echo=FALSE}
+example <- sleepstudy %>%
+  mutate(A = ifelse(Days < 5, -1, 1)) %>%
+  select(Subject, A, Reaction)
+example$A <- as.factor(example$A)
+
+example_summary <- example %>%
+  group_by(A) %>% 
+    summarise(mean_Rx = mean(Reaction),  # calculates the mean of each group
+            sd_Rx = sd(Reaction), # calculates the standard deviation of each group
+            n_Rx = n(),  # calculates the sample size per group
+            se_Rx = sd(Reaction)/sqrt(n())) # calculates the standard error of each group
+
+```
+
+
+what does this look like for group effects? 
+
+```{r}
+example
+```
+---
+
+```{r, echo = FALSE}
+
+ ggplot(example_summary, aes(x=A, y=mean_Rx)) + 
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(ymin=mean_Rx-2*se_Rx, ymax=mean_Rx+2*se_Rx), width=.3,    position=position_dodge(.9)) 
+
+```
+
+
+
+---
+
+```{r, eval=FALSE}
+ex.1 <- lmer(Reaction ~ 1 + (1|Subject), data = example)
+summary(ex.1)
+```
+
+---
+.tiny[
+```{r, echo=FALSE}
+ex.1 <- lmer(Reaction ~ 1 + (1|Subject), data = example)
+summary(ex.1)
+```
+]
+
+---
+
+```{r}
+reghelper::ICC(ex.1)
+```
+
+---
+
+```{r, eval=FALSE}
+ex.2 <- lmer(Reaction ~ A + (1|Subject), data = example)
+summary(ex.2)
+```
+
+
+---
+.tiny[
+```{r, echo=FALSE}
+ex.2 <- lmer(Reaction ~ A + (1|Subject), data = example)
+summary(ex.2)
+```
+]
+
+
+---
+
+```{r, eval=FALSE}
+ex.3 <- lmer(Reaction ~ A + (A|Subject), data = example)
+summary(ex.3)
+```
+
+
+
+---
+.tiny[
+```{r, echo=FALSE}
+ex.3 <- lmer(Reaction ~ A + (A|Subject), data = example)
+summary(ex.3)
+```
+]
+
+---
+```{r}
+ranef(ex.3)
+```
+
+

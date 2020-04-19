@@ -5,6 +5,8 @@ date: "1/8/2020"
 output: html_document
 ---
 
+## RMANOVA MLM Week 15
+[RMANOVA MLM](/Lectures/RMANOVA-MLM-11.html)
 
 ## Over/underfitting Week 14
 [Over/underfitting Slides](/Lectures/fit-10.html)
