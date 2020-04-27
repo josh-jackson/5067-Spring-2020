@@ -1,0 +1,28 @@
+---
+title: lecture videos
+author: ''
+date: '2020-04-27'
+slug: lecture-videos
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-27T14:04:32-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+4/23: https://wustl.zoom.us/rec/share/4pdVBZDQ2WRLbLeR40DhRaQcBYa8T6a813Uar_EKmTFo8xFXMwAMaZcSAhbQ2AE
+
+4/21: https://wustl.zoom.us/rec/share/4pdVBZDQ2WRLbLeR40DhRaQcBYa8T6a813Uar_EKmTFo8xFXMwAMaZcSAhbQ2AE
+
+4/16: https://wustl.zoom.us/rec/share/_sUvDKDL0j9Lc4Hn2kTQWv8DJ4vjT6a82iJIqaFczUeMrgTvy3JQfmmR_XKcI3pY
+
+4/14: https://wustl.zoom.us/rec/share/9_V4Por1xmhIUpHVxm3xVYAlQIP8aaa80yVM_6JZzEoqGS5BzRfLSpx2qi8IQIgY
+
+4/9: https://wustl.zoom.us/rec/share/4pdVBZDQ2WRLbLeR40DhRaQcBYa8T6a813Uar_EKmTFo8xFXMwAMaZcSAhbQ2AE
